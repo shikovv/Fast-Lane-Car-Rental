@@ -2459,11 +2459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast Lane Car Rental\\CarRental\\CarRental.csproj",
+      "projectUniqueName": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
       "projectName": "CarRental",
-      "projectPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast Lane Car Rental\\CarRental\\CarRental.csproj",
+      "projectPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
       "packagesPath": "C:\\Users\\Admin_207\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast Lane Car Rental\\CarRental\\obj\\",
+      "outputPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin_207\\AppData\\Roaming\\NuGet\\NuGet.Config",

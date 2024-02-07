@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WPLgRPK3J8tOgC2G2UM1mE7BaF0n/uVmtjFfNhZ+zkB1VdR5c/LGOyyGdkapScrRgrjQ/h5Z5ubmk7YouQTtdw==",
+  "dgSpecHash": "Oe7JmB9cuCcKVHozBHsa84xt20Nzf0DGD98DHx0bWWRAbyBHfsXbWJ6XDXuHfzNEeyhHdvvN821MHMbFrOaHWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast Lane Car Rental\\CarRental\\CarRental.csproj",
+  "projectFilePath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin_207\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin_207\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.23\\microsoft.aspnetcore.cryptography.internal.6.0.23.nupkg.sha512",
