@@ -1,6 +1,6 @@
 ﻿namespace CarRental.Data.Domain.Enums
 {
-    public enum EngineType
+    public enum EngineFuelType
     {
         Gasoline,
         LPG,
