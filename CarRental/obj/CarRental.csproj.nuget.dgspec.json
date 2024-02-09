@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj": {}
+    "C:\\Users\\user\\Desktop\\Fast Lane Car Rental\\CarRental\\CarRental.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj": {
+    "C:\\Users\\user\\Desktop\\Fast Lane Car Rental\\CarRental\\CarRental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Fast Lane Car Rental\\CarRental\\CarRental.csproj",
         "projectName": "CarRental",
-        "projectPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
-        "packagesPath": "C:\\Users\\Admin_207\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Fast Lane Car Rental\\CarRental\\CarRental.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Fast Lane Car Rental\\CarRental\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admin_207\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
