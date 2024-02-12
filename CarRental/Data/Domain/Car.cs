@@ -5,6 +5,10 @@ namespace CarRental.Data.Domain
 {
     public class Car
     {
+        public Car() 
+        {
+            this.Id = Guid.NewGuid();
+        }
         [Key]
         public Guid Id { get; set; }
         public BodyType BodyType { get; set; }
@@ -44,7 +48,8 @@ namespace CarRental.Data.Domain
         [Range(35,5000)]
         public double PricePerDay { get; set; }
         public string ImageURL { get; set; }
-        public Guid RentalId { get; set; }
-        public virtual ApplicationUser Renter {  get; set; }
+        public Guid? RentalId { get; set; }
+        public virtual ApplicationUser? Renter {  get; set; }
+
     }
 }
