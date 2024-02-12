@@ -44,5 +44,7 @@ namespace CarRental.Data.Domain
         [Range(35,5000)]
         public double PricePerDay { get; set; }
         public string ImageURL { get; set; }
+        public Guid RentalId { get; set; }
+        public virtual ApplicationUser Renter {  get; set; }
     }
 }
