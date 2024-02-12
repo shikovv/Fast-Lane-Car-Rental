@@ -8,6 +8,8 @@ namespace CarRental.Data.Domain.Enums
         Inline,
         V,
         Flat,
-        W
+        Boxer,
+        W,
+        Wankel
     }
 }

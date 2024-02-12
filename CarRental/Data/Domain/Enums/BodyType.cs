@@ -16,7 +16,6 @@
             Offroad,
             Convertible,
             Cabriolet,
-            Muscle,
             Sport,
             Micro
         }

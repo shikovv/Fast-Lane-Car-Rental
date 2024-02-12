@@ -1,10 +1,14 @@
-﻿namespace CarRental.Data.Domain.Enums
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CarRental.Data.Domain.Enums
 {
     public enum EngineFuelType
     {
         Gasoline,
-        LPG,
-        CNG,
+        [Display(Name = "Gasoline/LPG")]
+        GasolineLPG,
+        [Display(Name = "Gasoline/CNG")]
+        GasolineCNG,
         Diesel,
         Electric,
         Hybrid

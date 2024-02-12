@@ -4,6 +4,7 @@
     {
         Manual,
         Automatic,
-        SemiAutomatic
+        SemiAutomatic,
+        CVT
     }
 }
