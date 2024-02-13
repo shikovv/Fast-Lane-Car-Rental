@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRental.Data.Domain
 {
-    public class ApplicationUser:IdentityUser<Guid>
+    public class ApplicationUser: IdentityUser<Guid>
     {
         public ApplicationUser() 
         { 

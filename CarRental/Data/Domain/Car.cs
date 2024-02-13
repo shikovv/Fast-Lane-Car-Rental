@@ -1,5 +1,6 @@
 ﻿using CarRental.Data.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarRental.Data.Domain
 {
@@ -14,6 +15,8 @@ namespace CarRental.Data.Domain
         public BodyType BodyType { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
+
+        [EnumDataType(typeof(TransmissionType))]
         public TransmissionType TransmissionType { get; set; }
         [Range(1920,2024)]
         public int YearOfProduction { get; set; }
@@ -48,6 +51,8 @@ namespace CarRental.Data.Domain
         [Range(35,5000)]
         public double PricePerDay { get; set; }
         public string ImageURL { get; set; }
+
+        [ForeignKey(nameof(Renter))]
         public Guid? RentalId { get; set; }
         public virtual ApplicationUser? Renter {  get; set; }
 

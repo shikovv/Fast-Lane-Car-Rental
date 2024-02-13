@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Стефан Шиков\\Desktop\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj": {}
+    "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Стефан Шиков\\Desktop\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj": {
+    "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Стефан Шиков\\Desktop\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
+        "projectUniqueName": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
         "projectName": "CarRental",
-        "projectPath": "C:\\Users\\Стефан Шиков\\Desktop\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
-        "packagesPath": "C:\\Users\\Стефан Шиков\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Стефан Шиков\\Desktop\\Fast-Lane-Car-Rental\\CarRental\\obj\\",
+        "projectPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\CarRental.csproj",
+        "packagesPath": "C:\\Users\\Admin_207\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin_207\\Desktop\\Шиков най големия\\Fast-Lane-Car-Rental\\CarRental\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Стефан Шиков\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin_207\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[6.0.23, )"
             },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[6.0.23, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.23, )"
@@ -80,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
