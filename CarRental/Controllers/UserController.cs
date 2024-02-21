@@ -77,7 +77,22 @@ namespace CarRental.Controllers
                 return View(model);
             }
             var user = await userManager.FindByNameAsync(model.UserName);
+            if(user!=null)
+            {
+                var result = await signInManager.PasswordSignInAsync(user, model.Password, false, false);
+                if(result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            ModelState.AddModelError("", "Invalid login");
+            return View(model);
+        }
 
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
