@@ -18,6 +18,7 @@ namespace CarRental.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             builder.Entity<UserRental>()
                 .HasKey(x => new { x.RentalId, x.CustomerId });
         }

@@ -12,6 +12,7 @@ namespace CarRental.Data.Domain
             this.UserRentals = new HashSet<UserRental>();
             this.SecurityStamp=Guid.NewGuid().ToString();
         }
+
         [Required,MaxLength(20)]
         public string FirstName { get; set; }
         [Required, MaxLength(25)]
