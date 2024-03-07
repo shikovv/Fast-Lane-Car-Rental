@@ -396,3 +396,13 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+CarRental/obj/Debug/net6.0/CarRental.GeneratedMSBuildEditorConfig.editorconfig
+CarRental/obj/project.nuget.cache
+CarRental/obj/Debug/net6.0/CarRental.RazorAssemblyInfo.cache
+CarRental/obj/Debug/net6.0/CarRental.GeneratedMSBuildEditorConfig.editorconfig
+CarRental/obj/Debug/net6.0/CarRental.assets.cache
+CarRental/obj/Debug/net6.0/CarRental.AssemblyInfoInputs.cache
+CarRental/obj/CarRental.csproj.nuget.g.props
+CarRental/obj/CarRental.csproj.nuget.dgspec.json
+*.cache
+*.cache
