@@ -50,6 +50,7 @@ namespace CarRental.Data.Domain
         //In Bgn
         [Range(35,5000)]
         public double PricePerDay { get; set; }
+        [Required]
         public string ImageURL { get; set; }
 
         [ForeignKey(nameof(Renter))]
