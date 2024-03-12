@@ -10,7 +10,6 @@ namespace CarRental.Data.Domain.Enums
         [Display(Name = "Gasoline/CNG")]
         GasolineCNG,
         Diesel,
-        Electric,
         Hybrid
     }
 }

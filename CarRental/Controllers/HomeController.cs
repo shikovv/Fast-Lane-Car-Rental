@@ -15,10 +15,6 @@ namespace CarRental.Controllers
 
         public IActionResult Index()
         {
-            if(User?.Identity?.IsAuthenticated ?? false)
-            {
-                return RedirectToAction("Index");
-            }
             return View();
         }
 
