@@ -8,17 +8,11 @@
 
 ​
 
-<div class="row">​
-
-    <div class="col-md-4 offset-md-4">​
-
-        <form id="registerForm" method="post">​
-
-
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>​
-
-            <div class="text-center mb-3">​
-
+            <div class="register-box">
+               <h2>Register</h2>
+              <form asp-area="" asp-controller="User" method="post">
+            <div class="user-box">​
                 <label asp-for="@Model.UserName">Username</label>​
 
                 <input class="form-control " autocomplete="username" aria-required="true" asp-for="@Model.UserName"/>​
@@ -27,7 +21,7 @@
 
             </div>​
 
-            <div class="text-center mb-3">​
+            <div class="user-box">​
 
                 <label asp-for="@Model.FirstName">Firstname</label>​
 
@@ -37,7 +31,7 @@
 
             </div>​
 
-            <div class="text-center mb-3">​
+            <div class="user-box">​
 
                 <label asp-for="@Model.Surname">Surname</label>​
 
@@ -47,16 +41,20 @@
 
             </div>​
 
-            <div class="text-center mb-3">​
+            <div class="user-box">​
 
                 <label asp-for="@Model.EmailAddress">Email</label>​
 
-                <input class="form-control " autocomplete="username" aria-required="true" asp-for="@Model.EmailAddress"/>​
+                <input class="form-control " autocomplete="username" aria-required="true" asp-for="@Model.EmailAddress" />​
 
                 <span asp-validation-for="@Model.EmailAddress" class="text-danger"></span>​
-                </div>
 
-                <div class="text-center mb-3">​
+                </div>
+                <label>
+
+                </label>
+
+                <div class="user-box">​
 
                 <label asp-for="@Model.Password">Password</label>​
 
@@ -66,7 +64,7 @@
 
             </div>​
 
-            <div class="text-center mb-3">​
+            <div class="user-box">​
 
                 <label asp-for="@Model.ConfirmPassword">Confirm Password</label>​
 
@@ -76,21 +74,13 @@
 
             </div>​
 
-            <div class="text-center">​
-
-                <button class="login-submit-btn" type="submit">
+                <button class="register-submit-btn" type="submit">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
       Submit
     </button>
-
-            </div>​
-
-        </form>​
-
-    </div>​
-
-</div>​
+    </form>
+    </div>
 <link href="~/css/register.css" rel="stylesheet" />
