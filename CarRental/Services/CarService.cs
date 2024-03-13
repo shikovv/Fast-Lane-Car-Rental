@@ -7,7 +7,7 @@
     public class CarService
     {
         private readonly ApplicationDbContext context;
-        public async Task<string> CreateAndReturnIdAsync(CarFormModel model)
+        public async Task<string> CreateAndReturnIdAsync(CarViewModel model)
         {
             Car car = new Car
             {

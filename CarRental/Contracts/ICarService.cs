@@ -4,6 +4,6 @@ namespace CarRental.Contracts
 {
     public interface ICarService
     {
-        Task<string> CreateAndReturnIdAsync(CarFormModel formModel);
+        Task<string> CreateAndReturnIdAsync(CarViewModel formModel);
     }
 }
