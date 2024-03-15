@@ -19,6 +19,7 @@ namespace CarRental.Models.Car
         [RegularExpression(@"^[a-zA-Z\s]+$",
            ErrorMessage = "The Make field should contain only letters.")]
         public string Make { get; set; }
+        public bool IsActive {  get; set; }
         [Required]
         [StringLength(25, MinimumLength = 1)]
         [RegularExpression(@"^[a-zA-Z0-9\s-]+$",

@@ -12,6 +12,7 @@ namespace CarRental.Data.Domain
         }
         [Key]
         public Guid Id { get; set; }
+        public bool IsActive {  get; set; }
         public BodyType BodyType { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
