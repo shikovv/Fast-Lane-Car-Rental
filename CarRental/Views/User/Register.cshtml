@@ -4,7 +4,6 @@
     ViewData["Title"] = "Register";
 }​
 <body style="overflow-y: auto;">
-    <h1 class="text-center">@ViewData["Title"]</h1>​
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>​
     <div class="register-box">
                <h2>Register</h2>
@@ -14,6 +13,9 @@
                 <input class="form-control " autocomplete="username" aria-required="true" asp-for="@Model.UserName"/>​
                 <span asp-validation-for="@Model.UserName" class="text-danger"></span>​
             </div>
+            <label>
+
+            </label>
             <div class="user-box">​
                 <label asp-for="@Model.FirstName">Firstname</label>​
                 <input class="form-control " autocomplete="firstname" aria-required="true" asp-for="@Model.FirstName"/>​
