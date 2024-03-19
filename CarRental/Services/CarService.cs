@@ -9,6 +9,11 @@
     public class CarService
     {
         private readonly ApplicationDbContext context;
+
+        public CarService(ApplicationDbContext dbContext)
+        {
+            dbContext = context;
+        }
         public async Task<string> CreateAndReturnIdAsync(CarViewModel model)
         {
             Car car = new Car
@@ -44,13 +49,14 @@
         }
 
 
-        public async Task<List<Car>> GetCarsWithFilterAndSorting(
+        public async Task<List<Car>> GetCarsWithFilterAndSortingAndPaging(
         string bodyType,
         string make,
         string transmissionType,
         string engineFuelType,
         string sortBy,
-        bool isAscending)
+        int pageNumber,
+        int pageSize)
         {
             IQueryable<Car> query = context.Cars.AsQueryable();
 
@@ -70,17 +76,46 @@
             //sort
             switch (sortBy.ToLower())
             {
-                case "price":
-                    query = isAscending ? query.OrderBy(c => c.PricePerDay) : query.OrderByDescending(c => c.PricePerDay);
-                    break;
-                case "year":
-                    query = isAscending ? query.OrderBy(c => c.YearOfProduction) : query.OrderByDescending(c => c.YearOfProduction);
-                    break;
+                case "price ascending":
+                    query = query.OrderBy(c => c.PricePerDay); break;
+                case "price descending":        
+                    query.OrderByDescending(c => c.PricePerDay); break;
+                case "oldest to newer":
+                    query = query.OrderBy(c => c.YearOfProduction); break;
+                case "newest to older":     
+                    query = query.OrderByDescending(c => c.YearOfProduction); break;
                 default:
                     throw new ArgumentException("Invalid sorting parameter.", nameof(sortBy));
             }
+            //paging
+            int skip = (pageNumber - 1) * pageSize;
+            query = query.Skip(skip).Take(pageSize);
 
             return await query.ToListAsync();
+        }
+
+        public async Task<List<Car>> GetCarsRentedBySpecificUser(Guid userId)
+        {
+            return await context.Cars
+                .Where(c => c.IsActive == true&&
+                            c.RenterId.HasValue&&
+                            c.RenterId==userId
+                )
+                .ToListAsync();
+        }
+
+        public async Task<CarViewModel> GetCarForEditById(Guid carId)
+        {
+            Car car = await this.context
+                .Cars
+                .Where(c => c.IsActive == true)
+                .FirstAsync(c => c.Id == carId);
+
+            return new CarViewModel
+            {
+
+            }
+
         }
     }
 }

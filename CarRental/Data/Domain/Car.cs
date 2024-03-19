@@ -55,7 +55,7 @@ namespace CarRental.Data.Domain
         public string ImageURL { get; set; }
 
         [ForeignKey(nameof(Renter))]
-        public Guid? RentalId { get; set; }
+        public Guid? RenterId { get; set; }
         public virtual ApplicationUser? Renter {  get; set; }
 
     }
