@@ -14,6 +14,7 @@
         {
             dbContext = context;
         }
+
         public async Task<string> CreateAndReturnIdAsync(CarViewModel model)
         {
             Car car = new Car
@@ -113,9 +114,62 @@
 
             return new CarViewModel
             {
+                Make = car.Make,
+                SelectedBodyType = car.BodyType,
+                Model = car.Model,
+                SelectedTransmissionType = car.TransmissionType,
+                YearOfProduction = car.YearOfProduction,
+                SelectedFuelType = car.EngineFuelType,
+                SelectedEngineStructureType = car.EngineStructureType,
+                SelectedEngineAspirationType = car.EngineAspirationType,
+                CylindersNumber = car.CylindersNumber,
+                Displacement = car.Displacement,
+                Horsepower = car.Horsepower,
+                PeakHorsepowerAtRPM = car.PeakHorsepowerAtRPM,
+                Torque = car.Torque,
+                PeakTorqueAtRPM = car.PeakTorqueAtRPM,
+                AccelerationTo100 = car.AccelerationTo100,
+                TopSpeed = car.TopSpeed,
+                Mileage = car.Mileage,
+                ConsumptionPer100Km = car.ConsumptionPer100Km,
+                SafetyRating = car.SafetyRating,
+                Seats = car.Seats,
+                PricePerDay = car.PricePerDay,
+                ImageURL = car.ImageURL
+            };
 
-            }
+        }
 
+        public async Task EditCarByIdAndViewModel(Guid carId, CarViewModel model)
+        {
+            Car car = await context.Cars
+                .Where(c => c.IsActive == true)
+                .FirstAsync(c => c.Id == carId);
+
+            car.Make = model.Make;
+            car.BodyType = model.SelectedBodyType;
+            car.Model = model.Model;
+            car.TransmissionType = model.SelectedTransmissionType;
+            car.YearOfProduction = model.YearOfProduction;
+            car.EngineFuelType = model.SelectedFuelType;
+            car.EngineStructureType = model.SelectedEngineStructureType;
+            car.EngineAspirationType = model.SelectedEngineAspirationType;
+            car.CylindersNumber = model.CylindersNumber;
+            car.Displacement = model.Displacement;
+            car.Horsepower = model.Horsepower;
+            car.PeakHorsepowerAtRPM = model.PeakHorsepowerAtRPM;
+            car.Torque = model.Torque;
+            car.PeakTorqueAtRPM = model.PeakTorqueAtRPM;
+            car.AccelerationTo100 = model.AccelerationTo100;
+            car.TopSpeed = model.TopSpeed;
+            car.Mileage = model.Mileage;
+            car.ConsumptionPer100Km = model.ConsumptionPer100Km;
+            car.SafetyRating = model.SafetyRating;
+            car.Seats = model.Seats;
+            car.PricePerDay = model.PricePerDay;
+            car.ImageURL = model.ImageURL;
+
+            await this.context.SaveChangesAsync();
         }
     }
 }
