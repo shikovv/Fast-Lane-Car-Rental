@@ -15,7 +15,7 @@
             dbContext = context;
         }
 
-        public async Task<string> CreateAndReturnIdAsync(CarViewModel model)
+        public async Task<string> CreateAndReturnId(CarViewModel model)
         {
             Car car = new Car
             {
@@ -171,5 +171,36 @@
 
             await this.context.SaveChangesAsync();
         }
+
+        public async Task DeleteCarById(Guid carId)
+        {
+            Car carToDelete = await this.context
+                .Cars
+                .FirstAsync(c => c.Id == carId);
+
+            this.context.Cars.Remove(carToDelete);
+            await this.context.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistById(Guid carId)
+        {
+            bool result = await this.context
+                .Cars
+                .Where(c => c.IsActive)
+                .AnyAsync(c => c.Id == carId);
+
+            return result;
+        }
+
+        public async Task<bool> IsRentedById(Guid carId)
+        {
+            Car car = await this.context
+                .Cars
+                .FirstAsync(c => c.Id == carId);
+
+            return car.RenterId.HasValue;
+        }
+
+
     }
 }
