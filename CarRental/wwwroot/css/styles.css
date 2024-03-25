@@ -19,16 +19,21 @@
 }
 
     .start-box h2 {
-        margin: 0 0 30px;
+        margin: 0 0 40px;
         padding: 0;
+        font-size:42px;
+        font-family:monospace;
+        font-style:italic;
         color: #fff;
         text-align: center;
     }
 
     .start-box p {
         color: #fff;
-        font-size: 16px;
-        margin-bottom: 30px;
+        font-size: 18px;
+        font-family:monospace;
+        font-style:italic;
+        margin-bottom: 20px;
         text-align: center;
     }
 

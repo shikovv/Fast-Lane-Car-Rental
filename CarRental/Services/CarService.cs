@@ -1,12 +1,14 @@
 ﻿namespace CarRental.Services
 {
+    using CarRental.Contracts;
     using CarRental.Data;
     using CarRental.Data.Domain;
     using CarRental.Models.Car;
+    using CarRental.Models.Rental;
     using Data.Domain.Enums;
     using Microsoft.EntityFrameworkCore;
 
-    public class CarService
+    public class CarService:ICarService
     {
         private readonly ApplicationDbContext context;
 
@@ -201,6 +203,74 @@
             return car.RenterId.HasValue;
         }
 
+        public async Task<double?> RentCarAsync(RentalForm rentalForm, Guid userId)
+        {
+            double? change = 0;
+            double? shortage = 0;
+            Car car = await this.context
+                .Cars
+                .Where(c => c.IsActive)
+                .FirstAsync(c => c.Id.ToString() == rentalForm.CarId);
 
+            car.RenterId = userId;
+
+            var user = await this.context.Users.FirstAsync(u => u.Id == userId);
+
+            if (user.PhoneNumber == null)
+            {
+                user.PhoneNumber = rentalForm.PhoneNumber;
+            }
+
+            if (rentalForm.Deposit >= car.PricePerDay * rentalForm.Days)
+            {
+                Rental rental = new Rental()
+                {
+                    StartDate = DateTime.UtcNow,
+                    EndDate = DateTime.UtcNow.AddDays(rentalForm.Days!.Value),
+                    CarId = Guid.Parse(rentalForm.CarId!),
+                    Deposit = rentalForm.Deposit!.Value,
+                    Price = car.PricePerDay * rentalForm.Days!.Value,
+                };
+                this.context.Rentals.Add(rental);
+                car.IsActive = false;
+                UserRental userRentals = new UserRental()
+                {
+                    CustomerId = user.Id,
+                    RentalId = rental.Id,
+                };
+                this.context.UserRentals.Add(userRentals);
+                change = rentalForm.Deposit - (car.PricePerDay * rentalForm.Days);
+                await this.context.SaveChangesAsync();
+                return change;
+            }
+            else
+            {
+                shortage = (car.PricePerDay * rentalForm.Days) - rentalForm.Deposit;
+                await this.context.SaveChangesAsync();
+                return shortage;
+            }
+            
+        }
+
+        public async Task<bool> IsRenterByUserWithId(Guid carId, Guid userId)
+        {
+            Car car = await this.context
+                .Cars
+                .FirstAsync(c => c.Id == carId);
+
+            return car.IsActive
+                && car.RenterId == userId;
+        }
+
+        public async Task LeaveCarById(Guid carId)
+        {
+            Car car = await this.context
+                .Cars
+                .FirstAsync(c => c.Id == carId);
+
+            car.RenterId = null;
+            car.IsActive = true;
+            await this.context.SaveChangesAsync();
+        }
     }
 }

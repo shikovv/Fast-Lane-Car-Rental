@@ -9,6 +9,7 @@ namespace CarRental.Data.Domain
         public Car() 
         {
             this.Id = Guid.NewGuid();
+            this.Rentals = new HashSet<Rental>();
         }
         [Key]
         public Guid Id { get; set; }
@@ -57,6 +58,6 @@ namespace CarRental.Data.Domain
         [ForeignKey(nameof(Renter))]
         public Guid? RenterId { get; set; }
         public virtual ApplicationUser? Renter {  get; set; }
-
+        public virtual ICollection<Rental> Rentals { get; set; }
     }
 }
