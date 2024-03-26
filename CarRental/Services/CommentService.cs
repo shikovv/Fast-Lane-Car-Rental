@@ -63,5 +63,45 @@ namespace CarRental.Services
 
             return comment.Id.ToString();
         }
+
+        public async Task<CommentFormModel> GetCommentForEditById(Guid commentId)
+        {
+            Comment comment = await this.context
+                .Comments
+                .FirstAsync(c => c.Id == commentId);
+
+            return new CommentFormModel()
+            {
+                Title = comment.Title,
+                Description = comment.Description,
+                StarsRating=comment.StarsRating,
+            };
+        }
+
+        public async Task EditCommentByIdAndFormModel(Guid commentId, CommentFormModel commentModel)
+        {
+            Comment comment = await this.context
+                .Comments
+                .FirstAsync(c => c.Id == commentId);
+
+            comment.Title = commentModel.Title;
+            comment.StarsRating = commentModel.StarsRating;
+            comment.Description = commentModel.Description;
+
+            await this.context.SaveChangesAsync();
+        }
+
+        public async Task DeleteCommentById(Guid commentId)
+        {
+            var commentToDelete = context.Comments.FirstOrDefault(c => c.Id == commentId);
+
+            if (commentToDelete != null)
+            {
+                context.Comments.Remove(commentToDelete);
+                context.SaveChanges();
+            }
+        }
+
+
     }
 }
