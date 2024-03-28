@@ -1,4 +1,5 @@
 ﻿using CarRental.Data.Domain.Enums;
+using CarRental.Models.Rental;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata.Ecma335;
 
@@ -14,6 +15,7 @@ namespace CarRental.Models.Car
             this.EngineFuelTypes = Enum.GetValues(typeof(EngineFuelType)).Cast<EngineFuelType>().ToHashSet();
             this.EngineStructureTypes = Enum.GetValues(typeof(EngineStructureType)).Cast<EngineStructureType>().ToHashSet();
         }
+        public string Id { get; set; }
         [Required]
         [StringLength(25, MinimumLength = 2)]
         [RegularExpression(@"^[a-zA-Z\s]+$",
@@ -75,6 +77,7 @@ namespace CarRental.Models.Car
         public double PricePerDay { get; set; }
         [Required]
         public string ImageURL { get; set; }
+        public RentalForm RentalForm { get; set; } = null!;
         public EngineAspirationType SelectedEngineAspirationType { get; set; }
         public BodyType SelectedBodyType { get; set; }
         public TransmissionType SelectedTransmissionType { get; set; }

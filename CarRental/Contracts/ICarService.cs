@@ -15,8 +15,9 @@ namespace CarRental.Contracts
         Task<bool> ExistById(Guid carId);
         Task<bool> IsRentedById(Guid carId);
         Task<double?> RentCarAsync(RentalForm rentalForm, Guid userId);
-        Task<bool> IsRenterByUserWithId(Guid carId, Guid userId);
+        Task<bool> IsRentedByUserWithId(Guid carId, Guid userId);
         Task LeaveCarById(Guid carId);
         Task<IEnumerable<string>> AllAvailableMakeNamesAsync();
+        Task<CarViewModel> GetDetailsById(string id);
     }
 }

@@ -112,6 +112,48 @@
             };
         }
 
+        public async Task<CarViewModel> GetDetailsById(string carId)
+        {
+            Car car = await this.context
+                .Cars
+                .Include(c => c.Rentals)
+                .ThenInclude(r => r.UserRentals)
+                .ThenInclude(ur => ur.ApplicationUser)
+                .Where(c => c.IsActive)
+                .FirstAsync(c => c.Id.ToString() == carId);
+
+            return new CarViewModel
+            {
+                Id = car.Id.ToString(),
+                Make = car.Make,
+                Model = car.Model,
+                SelectedBodyType = car.BodyType,
+                SelectedTransmissionType = car.TransmissionType,
+                Mileage = car.Mileage,
+                AccelerationTo100 = car.AccelerationTo100,
+                Horsepower = car.Horsepower,
+                TopSpeed = car.TopSpeed,
+                YearOfProduction = car.YearOfProduction,
+                SelectedEngineAspirationType = car.EngineAspirationType,
+                SelectedFuelType = car.EngineFuelType,
+                SelectedEngineStructureType = car.EngineStructureType,
+                CylindersNumber = car.CylindersNumber,
+                Displacement = car.Displacement,
+                PeakHorsepowerAtRPM = car.PeakHorsepowerAtRPM,
+                Torque = car.Torque,
+                PeakTorqueAtRPM = car.PeakTorqueAtRPM,
+                ConsumptionPer100Km = car.ConsumptionPer100Km,
+                SafetyRating = car.SafetyRating,
+                Seats = car.Seats,
+                PricePerDay = car.PricePerDay,
+                ImageURL = car.ImageURL,
+                RentalForm = new Models.Rental.RentalForm()
+                {
+                    CarId = car.Id.ToString()
+                }
+            };
+        }
+
         public async Task<List<Car>> GetCarsRentedBySpecificUser(Guid userId)
         {
             return await context.Cars
@@ -267,7 +309,7 @@
             
         }
 
-        public async Task<bool> IsRenterByUserWithId(Guid carId, Guid userId)
+        public async Task<bool> IsRentedByUserWithId(Guid carId, Guid userId)
         {
             Car car = await this.context
                 .Cars
