@@ -154,14 +154,33 @@
             };
         }
 
-        public async Task<List<Car>> GetCarsRentedBySpecificUser(Guid userId)
+        public async Task<List<CarAllViewModel>> GetCarsRentedBySpecificUser(Guid userId)
         {
-            return await context.Cars
+            List<CarAllViewModel> carsReady=new List<CarAllViewModel>();
+            List<Car> cars= await context.Cars
                 .Where(c => c.IsActive == true&&
                             c.RenterId.HasValue&&
                             c.RenterId==userId
                 )
                 .ToListAsync();
+            foreach(var car in cars)
+            {
+                CarAllViewModel model = new CarAllViewModel()
+                {
+                    Id = car.Id.ToString(),
+                    Make = car.Make,
+                    Model = car.Model,
+                    Transmission = car.TransmissionType.ToString(),
+                    BodyType = car.BodyType.ToString(),
+                    EngineType = car.EngineFuelType.ToString(),
+                    ImageUrl = car.ImageURL,
+                    PricePerDay = car.PricePerDay,
+                    PassengerSeats = car.Seats,
+                    IsRented = car.RenterId.HasValue,
+                };
+                carsReady.Add(model);
+            }
+            return carsReady;
         }
 
         public async Task<CarViewModel> GetCarForEditById(Guid carId)

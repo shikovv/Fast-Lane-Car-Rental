@@ -321,7 +321,7 @@ namespace CarRental.Controllers
 
             try
             {
-                myCars.AddRange(await carService.GetCarsRentedBySpecificUser(Guid.Parse(userId));
+                myCars.AddRange(await carService.GetCarsRentedBySpecificUser(Guid.Parse(userId)));
 
                 return View(myCars);
             }

@@ -8,7 +8,7 @@ namespace CarRental.Contracts
     {
         Task<string> CreateAndReturnId(CarViewModel formModel);
         Task<AllCarsFilteredAndPagedServiceModel> GetCarsWithFilterAndSortingAndPaging(AllCarsQueryModel quaryModel);
-        Task<List<Car>> GetCarsRentedBySpecificUser(Guid userId);
+        Task<List<CarAllViewModel>> GetCarsRentedBySpecificUser(Guid userId);
         Task<CarViewModel> GetCarForEditById(Guid carId);
         Task EditCarByIdAndViewModel(Guid carId, CarViewModel model);
         Task DeleteCarById(Guid carId);

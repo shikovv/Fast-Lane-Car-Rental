@@ -15,9 +15,23 @@ namespace CarRental.Services
             dbContext = context;
         }
 
-        public async Task<List<Comment>> AllCommentsByCreationTime()
+        public async Task<IEnumerable<CommentViewModel>> AllCommentsByCreationTime()
         {
-            return context.Comments.OrderByDescending(c => c.CreatedOn).ToList();
+            IEnumerable<CommentViewModel> allComments = await this.context
+                 .Comments
+                 .Select(c => new CommentViewModel()
+                 {
+                     Id = c.Id.ToString(),
+                     Title = c.Title,
+                     Description = c.Description,
+                     CreatedOn = c.CreatedOn,
+                     StarsRating = c.StarsRating
+                 })
+                 .OrderByDescending(c => c.CreatedOn)
+                 .ToArrayAsync();
+
+            return allComments;
+
         }
 
         public async Task<bool> ExistById(Guid CommentId)
