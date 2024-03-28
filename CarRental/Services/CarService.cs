@@ -52,49 +52,64 @@
         }
 
 
-        public async Task<List<Car>> GetCarsWithFilterAndSortingAndPaging(
-        string bodyType,
-        string make,
-        string transmissionType,
-        string engineFuelType,
-        string sortBy,
-        int pageNumber,
-        int pageSize)
+        public async Task<AllCarsFilteredAndPagedServiceModel> GetCarsWithFilterAndSortingAndPaging(AllCarsQueryModel quaryModel)
         {
-            IQueryable<Car> query = context.Cars.AsQueryable();
+            IQueryable<Car> query = context.Cars.Where(c=>c.IsActive).AsQueryable();
+            List<CarAllViewModel> cars = new List<CarAllViewModel>();
 
             //filter
-            if (!string.IsNullOrEmpty(bodyType))
-                query = query.Where(c => c.BodyType.ToString() == bodyType);
+            if (!string.IsNullOrEmpty(quaryModel.BodyType))
+                query = query.Where(c => c.BodyType.ToString() == quaryModel.BodyType);
 
-            if (!string.IsNullOrEmpty(make))
-                query = query.Where(c => c.Make.ToLower() == make.ToLower());
+            if (!string.IsNullOrEmpty(quaryModel.Make))
+                query = query.Where(c => c.Make.ToLower() == quaryModel.Make.ToLower());
 
-            if (!string.IsNullOrEmpty(transmissionType))
-                query = query.Where(c => c.TransmissionType.ToString().ToLower() == transmissionType.ToLower());
+            if (!string.IsNullOrEmpty(quaryModel.Transmission))
+                query = query.Where(c => c.TransmissionType.ToString().ToLower() == quaryModel.Transmission.ToLower());
 
-            if (!string.IsNullOrEmpty(engineFuelType))
-                query = query.Where(c => c.EngineFuelType.ToString().ToLower() == engineFuelType.ToLower());
+            if (!string.IsNullOrEmpty(quaryModel.EngineFuelType))
+                query = query.Where(c => c.EngineFuelType.ToString().ToLower() == quaryModel.EngineFuelType.ToLower());
 
             //sort
-            switch (sortBy.ToLower())
+            query = quaryModel.CarSorting switch
             {
-                case "price ascending":
-                    query = query.OrderBy(c => c.PricePerDay); break;
-                case "price descending":        
-                    query.OrderByDescending(c => c.PricePerDay); break;
-                case "oldest to newer":
-                    query = query.OrderBy(c => c.YearOfProduction); break;
-                case "newest to older":     
-                    query = query.OrderByDescending(c => c.YearOfProduction); break;
-                default:
-                    throw new ArgumentException("Invalid sorting parameter.", nameof(sortBy));
-            }
+                CarSorting.Newest => query
+                     .OrderByDescending(c => c.YearOfProduction),
+                CarSorting.Oldest => query
+                    .OrderBy(c => c.YearOfProduction),
+                CarSorting.PriceAscending => query
+                    .OrderBy(c => c.PricePerDay),
+                CarSorting.PriceDescending => query
+                    .OrderByDescending(c => c.PricePerDay)
+            };
             //paging
-            int skip = (pageNumber - 1) * pageSize;
-            query = query.Skip(skip).Take(pageSize);
+            IEnumerable<CarAllViewModel> allCars = await query
+                 .Include(c => c.Rentals)
+                 .Where(c => c.IsActive)
+                 .Skip((quaryModel.CurrentPage - 1) * quaryModel.CarsPerPage)
+                 .Take(quaryModel.CarsPerPage)
+                 .Select(c => new CarAllViewModel
+                 {
+                     Id = c.Id.ToString(),
+                     Make = c.Make,
+                     Model = c.Model,
+                     Transmission = c.TransmissionType.ToString(),
+                     BodyType = c.BodyType.ToString(),
+                     EngineType = c.EngineFuelType.ToString(),
+                     ImageUrl = c.ImageURL,
+                     PricePerDay = c.PricePerDay,
+                     PassengerSeats = c.Seats,
+                     IsRented = c.RenterId.HasValue,
+                 })
+                 .ToArrayAsync();
 
-            return await query.ToListAsync();
+            int totalCars = query.Count();
+
+            return new AllCarsFilteredAndPagedServiceModel()
+            {
+                TotalCarsCount = totalCars,
+                Cars = allCars
+            };
         }
 
         public async Task<List<Car>> GetCarsRentedBySpecificUser(Guid userId)
@@ -271,6 +286,18 @@
             car.RenterId = null;
             car.IsActive = true;
             await this.context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<string>> AllAvailableMakeNamesAsync()
+        {
+            IEnumerable<string> allNames = await this.context
+                .Cars
+                .Where(c => c.IsActive)
+                .Select(c => c.Make)
+                .Distinct()
+                .ToArrayAsync();
+
+            return allNames;
         }
     }
 }

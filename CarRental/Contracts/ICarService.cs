@@ -7,14 +7,7 @@ namespace CarRental.Contracts
     public interface ICarService
     {
         Task<string> CreateAndReturnId(CarViewModel formModel);
-        Task<List<Car>> GetCarsWithFilterAndSortingAndPaging(
-        string bodyType,
-        string make,
-        string transmissionType,
-        string engineFuelType,
-        string sortBy,
-        int pageNumber,
-        int pageSize);
+        Task<AllCarsFilteredAndPagedServiceModel> GetCarsWithFilterAndSortingAndPaging(AllCarsQueryModel quaryModel);
         Task<List<Car>> GetCarsRentedBySpecificUser(Guid userId);
         Task<CarViewModel> GetCarForEditById(Guid carId);
         Task EditCarByIdAndViewModel(Guid carId, CarViewModel model);
@@ -24,5 +17,6 @@ namespace CarRental.Contracts
         Task<double?> RentCarAsync(RentalForm rentalForm, Guid userId);
         Task<bool> IsRenterByUserWithId(Guid carId, Guid userId);
         Task LeaveCarById(Guid carId);
+        Task<IEnumerable<string>> AllAvailableMakeNamesAsync();
     }
 }
