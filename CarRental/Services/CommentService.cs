@@ -116,6 +116,13 @@ namespace CarRental.Services
             }
         }
 
+        public async Task<bool> IsCreaterWithId(Guid id, Guid userId)
+        {
+            Comment comment = await this.context
+                .Comments
+                .FirstAsync(c => c.Id == id);
 
+            return comment.CreatorId == userId;
+        }
     }
 }

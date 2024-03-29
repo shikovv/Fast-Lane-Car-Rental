@@ -1,0 +1,40 @@
+﻿@using CarRental.Extensions
+@using CarRental.Models.Car
+@model CarAllViewModel
+
+<div class="col-md-4">
+	<div class="card mb-3" style="height: 97%">
+		<img class="card-img-top" style="height: 361px;" src="@Model.ImageUrl" alt="Car Image">
+		<div class="card-body text-center">
+			<h4>@Model.Make</h4>
+			<h6>Model: <b>@Model.Model</b></h6>
+			<h6>
+				Price Per Day:
+				<b>@($"{Model.PricePerDay:f2}") BGN</b>
+			</h6>
+			<h6>(@(Model.IsRented ? "Rented" : "Not Rented"))</h6>
+			<br />
+			<a asp-area="" asp-controller="Car" asp-action="Detail" asp-route-id="@Model.Id" class="btn btn-success">Details</a>
+
+			@if (this.User.Identity?.IsAuthenticated ?? false)
+			{
+				@if (User.IsAdmin())
+				{
+					<a asp-area="" asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+					<a asp-area="" asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+				}
+				<p></p>
+			}
+		</div>
+	</div>
+</div>
+
+<style>
+	.card-body.text-center {
+		box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 15px -3px, rgba(0, 0, 0, 0.04) 0px 10px 20px -2px;
+		border-radius: 0.9rem;
+	}
+	.card-img-top {
+		box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 15px -3px, rgba(0, 0, 0, 0.04) 0px 10px 20px -2px
+	}
+</style>

@@ -14,9 +14,9 @@ namespace CarRental.Controllers
     {
         private readonly ICarService carService;
 
-        public CarController(ICarService carService)
+        public CarController(ICarService _carService)
         {
-            this.carService = carService;
+            this.carService = _carService;
         }
 
         [HttpGet]
@@ -203,7 +203,7 @@ namespace CarRental.Controllers
 
                 await carService.DeleteCarById(Guid.Parse(id));
 
-                TempData["WarningMessage"] = "The car successfully deleted!";
+                TempData["WarningMessage"] = "The car was successfully deleted!";
 
                 return RedirectToAction("All", "Car");
             }

@@ -1,4 +1,5 @@
-﻿using CarRental.Data.Domain;
+﻿using System.Reflection;
+using CarRental.Data.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

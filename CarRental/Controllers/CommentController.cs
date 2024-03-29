@@ -83,6 +83,116 @@ namespace CarRental.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            try
+            {
+                bool commentExists = await commentService
+                    .ExistById(Guid.Parse(id));
+
+                if (!commentExists)
+                {
+                    TempData["ErrorMessage"] = "Comment with the provided id does not exist!";
+
+                    return RedirectToAction("All", "Comment");
+                }
+
+                bool isAdmin = User.IsAdmin();
+                bool isCurrentUserCreatorOfTheComment = await commentService.IsCreaterWithId(Guid.Parse(id), Guid.Parse(User.GetId())!);
+
+                if (!isCurrentUserCreatorOfTheComment && !isAdmin)
+                {
+                    TempData["ErrorMessage"] =
+                        "You must be the creator of the comment in order to edit it!";
+
+                    return RedirectToAction("Detail", "Comment", new { id });
+                }
+
+                CommentFormModel formModel = await commentService
+                    .GetCommentForEditById(Guid.Parse(id));
+
+                return View(formModel);
+            }
+            catch (Exception)
+            {
+                return GeneralError();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, CommentFormModel commentModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(commentModel);
+            }
+
+            try
+            {
+                bool commentExists = await commentService
+                    .ExistById(Guid.Parse(id));
+
+                if (!commentExists)
+                {
+                    TempData["ErrorMessage"] = "Comment with the provided id does not exist!";
+
+                    return RedirectToAction("All", "Comment");
+                }
+
+                bool isAdmin = User.IsAdmin();
+                bool isCurrentUserCreatorOfTheComment = await commentService.IsCreaterWithId(Guid.Parse(id), Guid.Parse(User.GetId())!);
+
+                if (!isCurrentUserCreatorOfTheComment && !isAdmin)
+                {
+                    TempData["ErrorMessage"] =
+                        "You must be the creator of the comment in order to edit it!";
+
+                    return RedirectToAction("All", "Comment");
+                }
+
+
+                await commentService.EditCommentByIdAndFormModel(Guid.Parse(id), commentModel);
+
+                this.TempData["InformationMessage"] = "Comment was edited successfully";
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to edit the comment!");
+
+                return View(commentModel);
+            }
+
+            return RedirectToAction("Detail", "comment", new { id });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            try
+            {
+                bool commentExists = await commentService
+                    .ExistById(Guid.Parse(id));
+
+                if (!commentExists)
+                {
+                    TempData["ErrorMessage"] = "Comment with the provided id does not exist!";
+
+                    return RedirectToAction("All", "Comment");
+                }
+
+                await this.commentService.DeleteCommentById(Guid.Parse(id));
+
+                TempData["WarningMessage"] = "The selected comment was successfully deleted from the Database!";
+
+                return RedirectToAction("All", "Comment");
+            }
+            catch (Exception)
+            {
+                return this.GeneralError();
+            }
+        }
+
 
 
 

@@ -12,5 +12,6 @@ namespace CarRental.Contracts
         Task<CommentFormModel> GetCommentForEditById(Guid commentId);
         Task EditCommentByIdAndFormModel(Guid commentId, CommentFormModel commentModel);
         Task DeleteCommentById(Guid commentId);
+        Task<bool> IsCreaterWithId(Guid id, Guid userId);
     }
 }
