@@ -12,9 +12,9 @@
     {
         private readonly ApplicationDbContext context;
 
-        public CarService(ApplicationDbContext dbContext)
+        public CarService(ApplicationDbContext context)
         {
-            dbContext = context;
+            this.context = context;
         }
 
         public async Task<string> CreateAndReturnId(CarViewModel model)
@@ -63,9 +63,18 @@
 
             if (!string.IsNullOrEmpty(quaryModel.Make))
                 query = query.Where(c => c.Make.ToLower() == quaryModel.Make.ToLower());
-
-            if (!string.IsNullOrEmpty(quaryModel.Transmission))
-                query = query.Where(c => c.TransmissionType.ToString().ToLower() == quaryModel.Transmission.ToLower());
+            query = quaryModel.Transmission switch
+            {
+                "Auto" => query
+                    .Where(c => c.TransmissionType == TransmissionType.Automatic),
+                "Manual" => query
+                    .Where(c => c.TransmissionType == TransmissionType.Manual),
+                "CVT" => query
+               .Where(c => c.TransmissionType == TransmissionType.CVT),
+                "SemiAutomatic" => query
+                    .Where(c => c.TransmissionType == TransmissionType.SemiAutomatic),
+                _ => query
+            };
 
             if (!string.IsNullOrEmpty(quaryModel.EngineFuelType))
                 query = query.Where(c => c.EngineFuelType.ToString().ToLower() == quaryModel.EngineFuelType.ToLower());
@@ -80,7 +89,9 @@
                 CarSorting.PriceAscending => query
                     .OrderBy(c => c.PricePerDay),
                 CarSorting.PriceDescending => query
-                    .OrderByDescending(c => c.PricePerDay)
+                    .OrderByDescending(c => c.PricePerDay),
+                    _ => query
+                 .OrderBy(c => c.RenterId != null)
             };
             //paging
             IEnumerable<CarAllViewModel> allCars = await query

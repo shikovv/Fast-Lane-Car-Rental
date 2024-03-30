@@ -1,5 +1,7 @@
+using CarRental.Contracts;
 using CarRental.Data;
 using CarRental.Data.Domain;
+using CarRental.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +23,7 @@ namespace CarRental
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddApplicationServices(typeof(ICarService));
             builder.Services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/User/Login";
