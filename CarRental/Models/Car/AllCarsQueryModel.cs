@@ -1,6 +1,7 @@
 ﻿using CarRental.Data.Domain.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace CarRental.Models.Car
 {
@@ -18,7 +19,7 @@ namespace CarRental.Models.Car
                 };
 			this.BodyTypes = new string[]
 			{
-				" Sedan",
+				"Sedan",
 			    "Estate",
 			    "Hatchback",
 			    "Coupe",
@@ -34,7 +35,16 @@ namespace CarRental.Models.Car
 			    "Cabriolet",
 			    "Sport",
 			    "Micro"
-				};
+		    };
+			this.FuelTypes = new string[]
+			{
+				"Gasoline",
+				"Gasoline/LPG",
+				"Gasoline/CNG",
+				"Diesel",
+				"Hybrid"
+			};
+
 		}
 
             public string Make { get; set; }
@@ -49,7 +59,8 @@ namespace CarRental.Models.Car
             public int CarsPerPage { get; set; }
             public string[] Transmissions { get; set; }
 		    public string[] BodyTypes { get; set; }
-		public IEnumerable<string> Makes { get; set; }
+		    public string[] FuelTypes { get; set; }
+		    public IEnumerable<string> Makes { get; set; }
             public IEnumerable<CarAllViewModel> Cars { get; set; }
         }
     }

@@ -4,6 +4,7 @@ using CarRental.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240401161501_home")]
+    partial class home
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +104,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("8a5edc49-7490-493f-2f01-08db8a416485"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "45eb1ea8-8709-4344-9837-ba6bece4b91d",
+                            ConcurrencyStamp = "2601abb5-19c3-4435-8120-8f2d19a4cd58",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stefan",
@@ -110,10 +112,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN1wdYrxXsX2CeBrJ6PtbXUMcOT2wrYmufgsCO2NMoxyDMiY9kh4B7RnAwmMA4HtiA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP7+f5BGJQGz/aJGFMJIT/zMr2qXMLcNSUtzNkNmqDxAVgjKuz6Ws22abi5lVud9qA==",
                             PhoneNumber = "0988360889",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "98750ca0-98cf-4758-9924-72c4f2c6ceb3",
+                            SecurityStamp = "04fb7a1d-d681-4c2d-a63c-0ae68bac4386",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -121,7 +123,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f06d4765-779a-4766-eb64-08db8a42133c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2f276db9-a40c-4fc3-9ea0-7cded3e97026",
+                            ConcurrencyStamp = "a90d909d-bab0-4637-8960-eddf799268a9",
                             Email = "ivan.ivanov@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -129,10 +131,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "IVAN.IVANOV@GMAIL.COM",
                             NormalizedUserName = "IVAN IVANOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGso4xQ0wyOYtIAmlh4HNXxpboRXFQFt7bw2tM6JDBPM2C8g+4XmFrIHkvNhj3VIEA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGOYyX3Sxn30Cy+hQPJNnjI7/C/5183yN0wiiDTfla+LDD+zTiSqvkjq7z2Cajc8jw==",
                             PhoneNumber = "0899999999",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1ca3b3ba-67f6-4573-bfbd-1fe0ddc4a2ea",
+                            SecurityStamp = "7f3660e5-912b-4387-8bee-0d700661c640",
                             TwoFactorEnabled = false,
                             UserName = "Ivan Ivanov"
                         },
@@ -140,7 +142,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2363ec35-8ead-46c3-8786-e9010d5aeb08",
+                            ConcurrencyStamp = "6364fa01-fbbd-48e1-bba1-c161f4f46a09",
                             Email = "pesho_petrov@yahoo.com",
                             EmailConfirmed = false,
                             FirstName = "pesho",
@@ -148,10 +150,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PESHO_PETROV@YAHOO.COM",
                             NormalizedUserName = "PESHO_PETROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAELb5MljQhmpIhJxuCNUBm0Tm4Ttc6AJdL7W+p8Bxe7myvCRnHae4vBZghkO+fYv+2A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENJMJTbApLVZyYunIfuu4VGUMs7IE9GmEUomapKtcFZ/MlJqsnw3rajMBMhMqN1pqg==",
                             PhoneNumber = "0877777777",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9773878f-bf82-4c70-b509-d91d53db4cd5",
+                            SecurityStamp = "c24ef2eb-04cb-43f8-8fb4-bd3107ca6ec7",
                             TwoFactorEnabled = false,
                             UserName = "pesho_petrov"
                         });
@@ -435,7 +437,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"),
-                            ConcurrencyStamp = "37fa67a5-27f3-4647-9c00-8fefad1d7732",
+                            ConcurrencyStamp = "c08ae49f-1b3a-403d-a275-89be3c69c452",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

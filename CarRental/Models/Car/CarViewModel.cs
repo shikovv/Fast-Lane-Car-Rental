@@ -77,7 +77,9 @@ namespace CarRental.Models.Car
         public double PricePerDay { get; set; }
         [Required]
         public string ImageURL { get; set; }
-        public RentalForm RentalForm { get; set; } = null!;
+		[Display(Name = "Is Rented")]
+		public bool IsRented { get; set; }
+		public RentalForm RentalForm { get; set; } = null!;
         public EngineAspirationType SelectedEngineAspirationType { get; set; }
         public BodyType SelectedBodyType { get; set; }
         public TransmissionType SelectedTransmissionType { get; set; }

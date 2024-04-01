@@ -1,0 +1,69 @@
+﻿@using CarRental.Contracts
+@using CarRental.Extensions
+@using CarRental.Models.Car
+@model CarViewModel
+@inject ICarService CarService
+
+@{
+	ViewData["Title"] = "Car Details";
+
+	bool isAdmin = User.IsAdmin();
+	bool isCarRentedByUser = await CarService.IsRentedByUserWithId(Guid.Parse(Model.Id), Guid.Parse(User.GetId())!);
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<img class="card-img-top" style="width: 100%; height: 418px;" src="@Model.ImageURL" alt="Car Image">
+		</div>
+		<div class="col-md-6">
+			<div class="card border-0">
+				<p style="font-size:25px;"><u>@Model.Make</u></p>
+				<p>Price Per Day: <b>@($"{Model.PricePerDay:f2}") BGN</b></p>
+				<p>Model: <b>@Model.Model</b></p>
+				<p>Transmission: <b>@Model.SelectedTransmissionType</b></p>
+				<p>Passenger Seats: <b>@Model.Seats</b></p>
+				<p><i>(@(Model.IsRented ? "Rented" : "Not Rented"))</i></p>
+
+				<div class="d-flex flex-row@(isAdmin ? string.Empty : "-user")">
+					@if (this.User.Identity?.IsAuthenticated ?? false)
+					{
+						@if (!Model.IsRented)
+						{
+							<a class="btn btn-primary btn-sm-custom@(isAdmin ? string.Empty : "-user")" id="openRentModal" role="button">Rent</a>
+						}
+						else if (isCarRentedByUser || isAdmin)
+						{
+							<form class="ml-2" asp-controller="Car" asp-action="Leave" asp-route-id="@Model.Id" method="post">
+								<input class="btn btn-primary btn-sm-custom" type="submit" value="Leave" />
+							</form>
+						}
+						if (isAdmin)
+						{
+							<a asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm-custom ml-2">Edit</a>
+							<a asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm-custom ml-2">Delete</a>
+						}
+					}
+				</div>
+				<p></p>
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@* <partial name="_RentModalPartial" model="@Model.RentalForm" />
+
+@section Styles {
+	<link rel="stylesheet" href="~/css/car-detail.css" asp-append-version="true" />
+}
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
+*@

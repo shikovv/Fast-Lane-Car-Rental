@@ -69,6 +69,8 @@
 				"Coupe" => query
 					.Where(c => c.BodyType == BodyType.Coupe),
 				"SUV" => query
+				.Where(c => c.BodyType == BodyType.SUV),
+				"Pickup" => query
 				.Where(c => c.BodyType == BodyType.Pickup),
 				"Roadster" => query
 					.Where(c => c.BodyType == BodyType.Roadster),
@@ -108,8 +110,20 @@
                 _ =>query
             };
 
-            if (!string.IsNullOrEmpty(quaryModel.EngineFuelType))
-                query = query.Where(c => c.EngineFuelType.ToString().ToLower() == quaryModel.EngineFuelType.ToLower());
+            query = quaryModel.EngineFuelType switch
+            {
+                "Gasoline" => query
+                    .Where(c => c.EngineFuelType == EngineFuelType.Gasoline),
+                "Gasoline/LPG" => query
+                    .Where(c => c.EngineFuelType == EngineFuelType.GasolineLPG),
+                "Gasoline/CNG" => query
+                    .Where(c => c.EngineFuelType == EngineFuelType.GasolineCNG),
+                "Diesel" => query
+                    .Where(c => c.EngineFuelType == EngineFuelType.Diesel),
+                "Hybrid" => query
+               .Where(c => c.EngineFuelType == EngineFuelType.Hybrid),
+                _ => query
+            };
 
             //sort
             query = quaryModel.CarSorting switch
