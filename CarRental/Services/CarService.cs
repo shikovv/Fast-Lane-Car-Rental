@@ -59,7 +59,7 @@
 
             //filter
             if (!string.IsNullOrEmpty(quaryModel.BodyType))
-                query = query.Where(c => c.BodyType.ToString() == quaryModel.BodyType);
+                query = query.Where(c => c.BodyType.ToString().ToLower() == quaryModel.BodyType.ToLower());
 
             if (!string.IsNullOrEmpty(quaryModel.Make))
                 query = query.Where(c => c.Make.ToLower() == quaryModel.Make.ToLower());
@@ -69,11 +69,11 @@
                     .Where(c => c.TransmissionType == TransmissionType.Automatic),
                 "Manual" => query
                     .Where(c => c.TransmissionType == TransmissionType.Manual),
-                "CVT" => query
-               .Where(c => c.TransmissionType == TransmissionType.CVT),
                 "SemiAutomatic" => query
                     .Where(c => c.TransmissionType == TransmissionType.SemiAutomatic),
-                _ => query
+                "CVT" => query
+                    .Where(c => c.TransmissionType == TransmissionType.CVT),
+                _ =>query
             };
 
             if (!string.IsNullOrEmpty(quaryModel.EngineFuelType))

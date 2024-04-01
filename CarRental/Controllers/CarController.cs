@@ -21,7 +21,7 @@ namespace CarRental.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All([FromQuery] AllCarsQueryModel queryModel)
+        public async Task<IActionResult> All(AllCarsQueryModel queryModel)
         {
             AllCarsFilteredAndPagedServiceModel serviceModel =
                 await carService.GetCarsWithFilterAndSortingAndPaging(queryModel);

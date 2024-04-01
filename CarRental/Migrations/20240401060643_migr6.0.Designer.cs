@@ -4,6 +4,7 @@ using CarRental.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240401060643_migr6.0")]
+    partial class migr60
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +104,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("8a5edc49-7490-493f-2f01-08db8a416485"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e6c2d480-4fa7-412c-94a0-d2699b086ca5",
+                            ConcurrencyStamp = "8e5a886c-508e-4423-8172-b20c278c9a88",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stefan",
@@ -110,10 +112,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAENpQDBLNtAJlzqjxpoujgzjiRVbrRhaRG6DIkDvs+u9qjuzUFE6LSmxqcUL2B77FHg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAZXgP01JCfMuWrCL2JAmE6EnKAp3hjYeHWIduUBq+GkUjODOIQQdjheHbywRdDicg==",
                             PhoneNumber = "0988360889",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "00f3fda6-ec64-45b2-bc82-4524a819052e",
+                            SecurityStamp = "6d181da8-8cd2-45ba-beb9-54ba438a0d6a",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -121,7 +123,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f06d4765-779a-4766-eb64-08db8a42133c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f86c816-2601-4faf-8f2e-63f41ce1a341",
+                            ConcurrencyStamp = "d100c5e0-3c06-4f17-837f-27193432368e",
                             Email = "ivan.ivanov@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -129,10 +131,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "IVAN.IVANOV@GMAIL.COM",
                             NormalizedUserName = "IVAN IVANOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHWiiEBaO2hWBW5QnRCj4AGUXubWulvWAnA4O3snWqCRSr23gMgLQ959qLMYBxk1bQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEVXTLFzyD2no5KvXJBiQJNI7WAUqAzDVp5q20klwtAchqTQLJaw08t6Wx8h4gxwuA==",
                             PhoneNumber = "0899999999",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6ed495d6-4794-4917-8ab7-69d5d92c09f7",
+                            SecurityStamp = "42793372-5ebf-449e-bf3e-691128bd8322",
                             TwoFactorEnabled = false,
                             UserName = "Ivan Ivanov"
                         },
@@ -140,7 +142,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "27f2e9db-afd8-4382-add1-0a38032e07c9",
+                            ConcurrencyStamp = "3885e10d-2571-4fe4-9551-71db9b0f35ca",
                             Email = "pesho_petrov@yahoo.com",
                             EmailConfirmed = false,
                             FirstName = "pesho",
@@ -148,10 +150,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PESHO_PETROV@YAHOO.COM",
                             NormalizedUserName = "PESHO_PETROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAELzOOsQX25HZlpfBZYwsaSidf9f+uWSwzwGXK8ldrI6w52ok7Fjqx1Mkqj6+uHDz8g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAIXR+C65IwSO0DZARCvnP+J0ianWu0kCJx1afFOVhL4/3EFkDkDtcox5pju0mUWOA==",
                             PhoneNumber = "0877777777",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eb60a9a5-2c83-496d-845a-eb82eebf9ff0",
+                            SecurityStamp = "00969a08-0f2f-4cff-893d-bcb65891fb2e",
                             TwoFactorEnabled = false,
                             UserName = "pesho_petrov"
                         });
@@ -273,60 +275,6 @@ namespace CarRental.Migrations
                             Torque = 106,
                             TransmissionType = 0,
                             YearOfProduction = 2004
-                        },
-                        new
-                        {
-                            Id = new Guid("1201c5ee-8aa7-4400-9009-7bfc91fa4815"),
-                            AccelerationTo100 = 8.6999999999999993,
-                            BodyType = 0,
-                            ConsumptionPer100Km = 8.6999999999999993,
-                            CylindersNumber = 4,
-                            Displacement = 2000,
-                            EngineAspirationType = 0,
-                            EngineFuelType = 0,
-                            EngineStructureType = 0,
-                            Horsepower = 122,
-                            ImageURL = "https://i.pinimg.com/736x/bd/f1/67/bdf167075cbba99b9eeed9393ba24d65.jpg",
-                            IsActive = false,
-                            Make = "Mercedes",
-                            Mileage = 460000,
-                            Model = "190E",
-                            PeakHorsepowerAtRPM = 5300,
-                            PeakTorqueAtRPM = 3500,
-                            PricePerDay = 239.0,
-                            SafetyRating = 9.0999999999999996,
-                            Seats = 5,
-                            TopSpeed = 230,
-                            Torque = 178,
-                            TransmissionType = 1,
-                            YearOfProduction = 1991
-                        },
-                        new
-                        {
-                            Id = new Guid("1167ef05-3aaf-4ab8-8032-59d4d6bc2075"),
-                            AccelerationTo100 = 9.8000000000000007,
-                            BodyType = 0,
-                            ConsumptionPer100Km = 7.5,
-                            CylindersNumber = 4,
-                            Displacement = 2000,
-                            EngineAspirationType = 1,
-                            EngineFuelType = 3,
-                            EngineStructureType = 0,
-                            Horsepower = 140,
-                            ImageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/VW_Passat_B7_1.4_TSI_BMT_Trendline_Islandgrau.JPG/1280px-VW_Passat_B7_1.4_TSI_BMT_Trendline_Islandgrau.JPG",
-                            IsActive = false,
-                            Make = "Volkswagen",
-                            Mileage = 120000,
-                            Model = "Passat B7",
-                            PeakHorsepowerAtRPM = 4200,
-                            PeakTorqueAtRPM = 2500,
-                            PricePerDay = 99.0,
-                            SafetyRating = 7.2000000000000002,
-                            Seats = 5,
-                            TopSpeed = 211,
-                            Torque = 320,
-                            TransmissionType = 1,
-                            YearOfProduction = 2014
                         });
                 });
 
@@ -435,7 +383,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"),
-                            ConcurrencyStamp = "05998ea5-792d-4b81-a83f-faebdad4943e",
+                            ConcurrencyStamp = "18f622e8-04aa-47c9-a03d-b9c13c1d701e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

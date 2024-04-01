@@ -10,11 +10,22 @@
 <form method="get" style="width: 98%">
 	<div class="row" style="margin-left: 8em">
 		<div class="form-group col-md-3 d-flex justify-content-between">
-			<div class="form-group" style="margin-left: 12rem;">
+			<div class="form-group" style="margin: 0 2em">
 				<label asp-for="Make"></label>
 				<select asp-for="Make" class="form-control">
 					<option value="">All</option>
 					@foreach (var category in Model.Makes)
+					{
+						<option value="@category">@category</option>
+					}
+				</select>
+			</div>
+
+			<div class="form-group" style="margin: 0 2em">
+				<label asp-for="BodyType"></label>
+				<select asp-for="BodyType" class="form-control">
+					<option value="">All</option>
+					@foreach (var category in Model.BodyTypes)
 					{
 						<option value="@category">@category</option>
 					}

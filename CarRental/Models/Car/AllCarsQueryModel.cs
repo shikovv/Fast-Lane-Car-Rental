@@ -1,4 +1,5 @@
 ﻿using CarRental.Data.Domain.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace CarRental.Models.Car
@@ -13,9 +14,28 @@ namespace CarRental.Models.Car
             this.Cars = new HashSet<CarAllViewModel>();
             this.Transmissions = new string[]
             {
-                "Auto", "Manual", " SemiAutomatic", "CVT"
+                "Auto", "Manual", "SemiAutomatic", "CVT"
                 };
-            }
+			this.BodyTypes = new string[]
+			{
+				" Sedan",
+			    "Estate",
+			    "Hatchback",
+			    "Coupe",
+			    "SUV",
+			    "Pickup",
+			    "Roadster",
+			    "Crossover",
+			    "Limousine",
+			    "Van",
+			    "Camper",
+				"Offroad",
+			    "Convertible",
+			    "Cabriolet",
+			    "Sport",
+			    "Micro"
+				};
+		}
 
             public string Make { get; set; }
             public string Transmission { get; set; }
@@ -28,7 +48,8 @@ namespace CarRental.Models.Car
             [Display(Name = "Show Cars On Page")]
             public int CarsPerPage { get; set; }
             public string[] Transmissions { get; set; }
-            public IEnumerable<string> Makes { get; set; }
+		    public string[] BodyTypes { get; set; }
+		public IEnumerable<string> Makes { get; set; }
             public IEnumerable<CarAllViewModel> Cars { get; set; }
         }
     }

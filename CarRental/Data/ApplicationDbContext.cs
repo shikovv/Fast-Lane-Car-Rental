@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Reflection.Emit;
 using CarRental.Data.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -22,6 +23,12 @@ namespace CarRental.Data
             base.OnModelCreating(builder);
             builder.Entity<UserRental>()
                 .HasKey(x => new { x.RentalId, x.CustomerId });
+
+
+            Assembly configAssembly = Assembly.GetAssembly(typeof(ApplicationDbContext)) ??
+                                      Assembly.GetExecutingAssembly();
+
+            builder.ApplyConfigurationsFromAssembly(configAssembly);
         }
     }
 }
