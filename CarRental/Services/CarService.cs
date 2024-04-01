@@ -57,11 +57,43 @@
             IQueryable<Car> query = context.Cars.Where(c=>c.IsActive).AsQueryable();
             List<CarAllViewModel> cars = new List<CarAllViewModel>();
 
-            //filter
-            if (!string.IsNullOrEmpty(quaryModel.BodyType))
-                query = query.Where(c => c.BodyType.ToString().ToLower() == quaryModel.BodyType.ToLower());
+			//filter
+			query = quaryModel.BodyType switch
+			{
+				"Sedan" => query
+					.Where(c => c.BodyType == BodyType.Sedan),
+				"Estate" => query
+					.Where(c => c.BodyType == BodyType.Estate),
+				"Hatchback" => query
+					.Where(c => c.BodyType == BodyType.Hatchback),
+				"Coupe" => query
+					.Where(c => c.BodyType == BodyType.Coupe),
+				"SUV" => query
+				.Where(c => c.BodyType == BodyType.Pickup),
+				"Roadster" => query
+					.Where(c => c.BodyType == BodyType.Roadster),
+				"Crossover" => query
+				.Where(c => c.BodyType == BodyType.Crossover),
+				"Limousine" => query
+					.Where(c => c.BodyType == BodyType.Limousine),
+				"Van" => query
+				.Where(c => c.BodyType == BodyType.Van),
+				"Camper" => query
+					.Where(c => c.BodyType == BodyType.Camper),
+				"Offroad" => query
+				.Where(c => c.BodyType == BodyType.Offroad),
+				"Convertible" => query
+					.Where(c => c.BodyType == BodyType.Convertible),
+				"Cabriolet" => query
+				.Where(c => c.BodyType == BodyType.Cabriolet),
+				"Sport" => query
+					.Where(c => c.BodyType == BodyType.Sport),
+				"Micro" => query
+				.Where(c => c.BodyType == BodyType.Micro),
+				_ => query
+			};
 
-            if (!string.IsNullOrEmpty(quaryModel.Make))
+			if (!string.IsNullOrEmpty(quaryModel.Make))
                 query = query.Where(c => c.Make.ToLower() == quaryModel.Make.ToLower());
             query = quaryModel.Transmission switch
             {
