@@ -18,7 +18,7 @@
 
 
 
-            @if (this.User.IsAdmin())
+            @if (this.User.IsInRole("Admin"))
             {
                     <a asp-area="" asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px;">Edit</a>
                     <a asp-area="" asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px;">Delete</a>

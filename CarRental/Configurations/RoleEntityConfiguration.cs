@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace CarRental.Configurations
+﻿namespace CarRental.Configurations
 {
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
     public class RoleEntityConfiguration:IEntityTypeConfiguration<IdentityRole<Guid>>
     {
         public void Configure(EntityTypeBuilder<IdentityRole<Guid>> builder)
