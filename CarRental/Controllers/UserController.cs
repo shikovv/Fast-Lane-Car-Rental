@@ -82,7 +82,7 @@ namespace CarRental.Controllers
                 var result = await signInManager.PasswordSignInAsync(user, model.Password, false, false);
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("All","Car");
                 }
             }
             ModelState.AddModelError("", "Invalid login");

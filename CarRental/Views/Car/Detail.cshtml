@@ -1,6 +1,6 @@
-﻿@using CarRental.Contracts
-@using CarRental.Extensions
+﻿@using CarRental.Extensions
 @using CarRental.Models.Car
+@using CarRental.Contracts
 @model CarViewModel
 @inject ICarService CarService
 
@@ -57,13 +57,10 @@
 	</div>
 </div>
 
-@* <partial name="_RentModalPartial" model="@Model.RentalForm" />
+<partial name="_RentModelPartial" model="@Model.RentalForm" />
 
-@section Styles {
 	<link rel="stylesheet" href="~/css/car-detail.css" asp-append-version="true" />
-}
 
 @section Scripts {
 	<partial name="_ValidationScriptsPartial" />
 }
-*@
