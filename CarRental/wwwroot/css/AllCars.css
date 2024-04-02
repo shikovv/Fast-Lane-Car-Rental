@@ -35,6 +35,8 @@
 
     .all-cars-box .form-group {
         position: relative;
+        margin-right: 3em;
+        margin-left:3em;
     }
 
     .all-cars-box select, .all-cars-box input[type="submit"] {

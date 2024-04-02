@@ -7,72 +7,72 @@
 <body style="overflow-y: auto;">
 <h2 class="text-center fw-normal">@ViewBag.Title</h2>
     @* <hr style="border:2px solid; color:#0b1c3f" /> *@
-<form method="get" style="width: 98%;margin-top:2em;">
-    <div class="row" style="margin-left: 8em">
-        <div class="form-group col-md-4 d-flex justify-content-between">
-            <div class="form-group" style="margin: 0 1em">
+    <form method="get" style="width: 98%; margin-top: 2em;">
+        <div class="row" style="margin-left: 8em">
+            <div class="form-group col-md-5 d-flex justify-content-between">
+                <div class="form-group" style="margin: 0 1em">
                     <label asp-for="Make" style="font-weight:700;">Make</label>
-                <select asp-for="Make" class="form-control">
-                    <option value="">All</option>
-                    @foreach (var category in Model.Makes)
-                    {
-                        <option value="@category">@category</option>
-                    }
-                </select>
-            </div>
+                    <select asp-for="Make" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var category in Model.Makes)
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    </select>
+                </div>
 
-            <div class="form-group" style="margin: 0 1em">
+                <div class="form-group" style="margin: 0 1em;">
                     <label asp-for="BodyType" style="font-weight:700;">Body Type</label>
-                <select asp-for="BodyType" class="form-control">
-                    <option value="">All</option>
-                    @foreach (var category in Model.BodyTypes)
-                    {
-                        <option value="@category">@category</option>
-                    }
-                </select>
-            </div>
+                    <select asp-for="BodyType" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var category in Model.BodyTypes)
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    </select>
+                </div>
 
-            <div class="form-group" style="margin: 0 1em">
+                <div class="form-group" style="margin: 0 1em;">
                     <label asp-for="EngineFuelType" style="font-weight:700;">Fuel Type</label>
-                <select asp-for="EngineFuelType" class="form-control">
-                    <option value="">All</option>
-                    @foreach (var category in Model.FuelTypes)
-                    {
-                        <option value="@category">@category</option>
-                    }
-                </select>
-            </div>
+                    <select asp-for="EngineFuelType" class="form-control">
+                        <option value="">All</option>
+                        @foreach (var category in Model.FuelTypes)
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    </select>
+                </div>
 
-            <div class="form-group" style="margin: 0 1em">
-                <label asp-for="Transmission" style="font-weight:700;">Transmission</label>
-                <select asp-for="Transmission" class="form-control">
-                    <option value="">None</option>
-                    @foreach (var transmission in Model.Transmissions)
-                    {
-                        <option value="@transmission">@transmission</option>
-                    }
-                </select>
+                <div class="form-group" style="margin: 0 1em;">
+                    <label asp-for="Transmission" style="font-weight:700;">Transmission</label>
+                    <select asp-for="Transmission" class="form-control">
+                        <option value="">None</option>
+                        @foreach (var transmission in Model.Transmissions)
+                        {
+                            <option value="@transmission">@transmission</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="form-group" style="margin: 0 1em;">
+                    <label asp-for="CarSorting" style="font-weight:700;">Sort By</label>
+                    <select asp-for="CarSorting" class="form-control">
+                        <option value="0">None</option>
+                        <option value="1">Newest</option>
+                        <option value="2">Oldest</option>
+                        <option value="3">Price (Ascending)</option>
+                        <option value="4">Price (Descending)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group p-2" style="margin-top: 1.1em;">
+                    <input type="submit" value="Search" class="btn btn-primary btn-sm" style="margin-top: -.3rem; font-size: 12px !important; padding: .6rem 10px !important;" />
+                </div>
             </div>
         </div>
-        <div class="form-group col-md-3">
-            <div class="form-group" style="margin: 0 0.5em">
-                    <label asp-for="CarSorting" style="font-weight:700;"></label>
-                <select asp-for="CarSorting" class="form-control">
-                    <option value="0">None</option>
-                    <option value="1">Newest</option>
-                    <option value="2">Oldest</option>
-                    <option value="3">Price (Ascending)</option>
-                    <option value="4">Price (Descending))</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group p-2" style="margin-top: 1.1em">
-                    <input type="submit" value="Search" class="btn btn-primary btn-sm" style="margin-top: -.3rem;font-size: 12px !important;padding: .6rem 10px !important;}" />
-            </div>
-        </div>
-    </div>
-</form>
+    </form>
 @{
     int previousPage = Model.CurrentPage - 1;
     if (previousPage < 1)
