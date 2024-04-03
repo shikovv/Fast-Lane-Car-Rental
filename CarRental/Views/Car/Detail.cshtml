@@ -5,76 +5,77 @@
 @inject ICarService CarService
 
 @{
-	ViewData["Title"] = "Car Details";
+    ViewData["Title"] = "Car Details";
 
-	bool isAdmin = User.IsAdmin();
-	bool isCarRentedByUser = await CarService.IsRentedByUserWithId(Guid.Parse(Model.Id), Guid.Parse(User.GetId())!);
+    bool isAdmin = User.IsAdmin();
+    bool isCarRentedByUser = await CarService.IsRentedByUserWithId(Guid.Parse(Model.Id), Guid.Parse(User.GetId())!);
 }
+<body style="background: linear-gradient(#0b1c3f, #1f6bc0);">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <img class="card-img-top" src="@Model.ImageURL" alt="Car Image" style="width: 100%; height: auto;">
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card border-0">
-                        <p style="font-size:25px;"><u><b>@Model.Make</b></u></p>
-                        <p>Price Per Day: <b>@($"{Model.PricePerDay:f2}") BGN</b></p>
-                        <p>Model: <b>@Model.Model</b></p>
-                        <p>Year of production: <b>@Model.YearOfProduction</b></p>
-                        <p>Safety Rating: <b>@($"{Model.SafetyRating:f1}")</b></p>
-                        <p>Passenger Seats: <b>@Model.Seats</b></p>
-                        <p>Transmission: <b>@Model.SelectedTransmissionType</b></p>
-						<p><i><b>(@(Model.IsRented ? "Rented" : "Not Rented"))</b></i></p>
-						<div class="d-flex flex-row@(isAdmin ? string.Empty : "-user")">
-							@if (this.User.Identity?.IsAuthenticated ?? false)
-							{
-								@if (!Model.IsRented)
-								{
-									<a class="btn btn-primary btn-sm-custom@(isAdmin ? string.Empty : "-user")" id="openRentModal" role="button">Rent</a>
-								}
-								else if (isCarRentedByUser || isAdmin)
-								{
-									<form class="ml-2" asp-controller="Car" asp-action="Leave" asp-route-id="@Model.Id" method="post">
-										<input class="btn btn-primary btn-sm-custom" type="submit" value="Leave" />
-									</form>
-								}
-								if (isAdmin)
-								{
-									<a asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm-custom ml-2">Edit</a>
-									<a asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm-custom ml-2">Delete</a>
-								}
-							}
-						</div>
+    <div class="container" style="margin-top: 5rem;">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="card-img-top" src="@Model.ImageURL" alt="Car Image" style="margin-left:-15rem;width: 800px; height: 550px; object-fit: cover; border: 8px solid rgba(0, 0, 0, .125);box-sizing: border-box;padding:0;">
+            </div>
+            <div class="col-md-6" style="color:#fff; font-size: 20px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card border-0" style="background: transparent;text-align:center;width:fit-content;">
+                            <p style="font-size:35px;"><u><b style="color:#fff;">@Model.Make</b></u></p>
+                            <p>Price Per Day: <b>@($"{Model.PricePerDay:f2}") BGN</b></p>
+                            <p>Model: <b>@Model.Model</b></p>
+                            <p>BodyType: <b>@Model.SelectedBodyType</b></p>
+                            <p>Year of production: <b>@Model.YearOfProduction</b></p>
+                            <p>Safety Rating: <b>@($"{Model.SafetyRating:f1}")</b></p>
+                            <p>Passenger Seats: <b>@Model.Seats</b></p>
+                            <p>Transmission: <b>@Model.SelectedTransmissionType</b></p>
+                            <p>Engine: <b>@Model.SelectedEngineStructureType @Model.CylindersNumber</b></p>
+                            <p>Aspiration: <b>@Model.SelectedEngineAspirationType</b></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0" style="background: transparent;margin-top:.8rem;text-align:center;width:fit-content;">
+                            <p>Fuel: <b>@($"{Model.SelectedFuelType}")</b></p>
+                            <p>Displacement: <b>@($"{Model.Displacement}")cc</b></p>
+                            <p>Power: <b>@($"{Model.Horsepower}")Hp/@($"{Model.PeakHorsepowerAtRPM}")RPM</b></p>
+                            <p>Torque: <b>@($"{Model.Torque}")Nm/@($"{Model.PeakTorqueAtRPM}")RPM</b></p>
+                            <p>Acceleration(0-100): <b>@(Model.AccelerationTo100) Sec</b></p>
+                            <p>Top speed: <b>@($"{Model.TopSpeed}")Km/h</b></p>
+                            <p>Mileage: <b>@($"{Model.Mileage}") Km</b></p>
+                            <p>Consumption: <b>@($"{Model.ConsumptionPer100Km:f1}")L/100Km</b></p>
+                            <div class="text-center"><i><b style="font-size:25px;">(@(Model.IsRented ? "Rented" : "Not Rented"))</b></i></div>
+                            <div class="d-flex flex-row@(isAdmin ? string.Empty : "-user") justify-content-center align-items-center">
+                                @if (this.User.Identity?.IsAuthenticated ?? false)
+                                {
+                                    @if (!Model.IsRented)
+                                    {
+                                        <a class="btn btn-primary btn-sm-custom@(isAdmin ? string.Empty : "-user")" style="margin:1rem;font-weight: 800; font-size: 20px;padding: 10px 20px;background:#1f6bc0;color:white;border: 3px solid rgba(0, 0, 0, .125);" id="openRentModal" role="button">Rent</a>
+                                    }
+                                    else if (isCarRentedByUser || isAdmin)
+                                    {
+                                        <form class="ml-2" asp-controller="Car" asp-action="Leave" asp-route-id="@Model.Id" method="post">
+                                            <input class="btn btn-primary btn-sm-custom" type="submit" value="Leave" />
+                                        </form>
+                                    }
+                                    if (isAdmin)
+                                    {
+                                        <a asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm-custom ml-2" style="margin:1rem;font-weight: 800; font-size: 20px;padding: 10px 20px;background:#1f6bc0;color:white;border: 3px solid rgba(0, 0, 0, .125);">Edit</a>
+                                        <a asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm-custom ml-2" style="margin:1rem;font-weight: 800; font-size: 20px;padding: 10px 20px;background:#1f6bc0;color:white;border: 3px solid rgba(0, 0, 0, .125);">Delete</a>
+                                    }
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card border-0">
-                        <p>Engine: <b>@Model.SelectedEngineStructureType @Model.CylindersNumber</b></p>
-                        <p>Displacement: <b>@($"{Model.Displacement}")cc</b></p>
-                        <p>Power: <b>@($"{Model.Horsepower}")Hp/@($"{Model.PeakHorsepowerAtRPM}")RPM</b></p>
-                        <p>Torque: <b>@($"{Model.Torque}")Nm/@($"{Model.PeakTorqueAtRPM}")RPM</b></p>
-                        <p>Acceleration(0-100): <b>@(Model.AccelerationTo100) Sec</b></p>
-                        <p>Top speed: <b>@($"{Model.TopSpeed}")Km/h</b></p>
-                        <p>Mileage: <b>@($"{Model.Mileage}") Km</b></p>
-                        <p>Consumption: <b>@($"{Model.ConsumptionPer100Km:f1}")L/100Km</b></p>
-                </div>
-				<p></p>
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
 
-<partial name="_RentModelPartial" model="@Model.RentalForm" />
+    <partial name="_RentModelPartial" model="@Model.RentalForm" />
 
-	<link rel="stylesheet" href="~/css/car-detail.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/car-detail.css" asp-append-version="true" />
 
-@section Scripts {
-	<partial name="_ValidationScriptsPartial" />
-}
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>

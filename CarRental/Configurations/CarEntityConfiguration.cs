@@ -41,7 +41,7 @@ namespace CarRental.Configurations
                 Seats = 5,
                 EngineStructureType=EngineStructureType.Inline,
                 CylindersNumber=4,
-                EngineAspirationType=EngineAspirationType.NaturallyAspirated,
+                EngineAspirationType=EngineAspirationType.Atmospheric,
                 Displacement=1300,
                 PeakHorsepowerAtRPM=5000,
                 Torque=106,
@@ -50,7 +50,7 @@ namespace CarRental.Configurations
 
             cars.Add(new Car()
             {
-                Id = Guid.Parse("1201c5ee-8aa7-4400-9009-7bfc91fa4815"),
+                Id = Guid.Parse("1201c5ee-8aa7-4400-9009-7bfc91fa4817"),
                 Make = "Mercedes",
                 Model = "190E",
                 BodyType = BodyType.Sedan,
@@ -68,7 +68,7 @@ namespace CarRental.Configurations
                 Seats = 5,
                 EngineStructureType = EngineStructureType.Inline,
                 CylindersNumber = 4,
-                EngineAspirationType = EngineAspirationType.NaturallyAspirated,
+                EngineAspirationType = EngineAspirationType.Atmospheric,
                 Displacement = 2000,
                 PeakHorsepowerAtRPM = 5300,
                 Torque = 178,
@@ -77,7 +77,7 @@ namespace CarRental.Configurations
 
             cars.Add(new Car()
             {
-                Id = Guid.Parse("1167ef05-3aaf-4ab8-8032-59d4d6bc2075"),
+                Id = Guid.Parse("1167ef05-3aaf-4ab8-8032-59d4d6bc2076"),
                 Make = "Volkswagen",
                 Model = "Passat B7",
                 BodyType = BodyType.Sedan,
@@ -95,7 +95,7 @@ namespace CarRental.Configurations
                 Seats = 5,
                 EngineStructureType = EngineStructureType.Inline,
                 CylindersNumber = 4,
-                EngineAspirationType = EngineAspirationType.TurboCharged,
+                EngineAspirationType = EngineAspirationType.Turbocharger,
                 Displacement = 2000,
                 PeakHorsepowerAtRPM = 4200,
                 Torque = 320,

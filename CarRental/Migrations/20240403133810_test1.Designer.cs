@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240401060643_migr6.0")]
-    partial class migr60
+    [Migration("20240403133810_test1")]
+    partial class test1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,7 +104,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("8a5edc49-7490-493f-2f01-08db8a416485"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8e5a886c-508e-4423-8172-b20c278c9a88",
+                            ConcurrencyStamp = "b0c65fae-585e-4af5-a304-1a6d5863420c",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stefan",
@@ -112,10 +112,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAZXgP01JCfMuWrCL2JAmE6EnKAp3hjYeHWIduUBq+GkUjODOIQQdjheHbywRdDicg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENxPQJUvASY6A6d1Z6avvuASCyAyV+eadY9v0i9o2VSR/yKj6SAr3jwY7gRi6kXTww==",
                             PhoneNumber = "0988360889",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6d181da8-8cd2-45ba-beb9-54ba438a0d6a",
+                            SecurityStamp = "d032e59b-4398-489b-b4f5-d82945480b6d",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -123,7 +123,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f06d4765-779a-4766-eb64-08db8a42133c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d100c5e0-3c06-4f17-837f-27193432368e",
+                            ConcurrencyStamp = "6b93b653-746e-443b-ad18-e5f78cdef852",
                             Email = "ivan.ivanov@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -131,10 +131,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "IVAN.IVANOV@GMAIL.COM",
                             NormalizedUserName = "IVAN IVANOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEVXTLFzyD2no5KvXJBiQJNI7WAUqAzDVp5q20klwtAchqTQLJaw08t6Wx8h4gxwuA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAiy+6+aJhBnYC5C3Pjy84f3st82i9XDRUZ7tEzwk6umQdzJBw8dZ+CMOxgIS92lmQ==",
                             PhoneNumber = "0899999999",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "42793372-5ebf-449e-bf3e-691128bd8322",
+                            SecurityStamp = "dd116104-dd26-4d1e-8793-604a0ccaa96a",
                             TwoFactorEnabled = false,
                             UserName = "Ivan Ivanov"
                         },
@@ -142,7 +142,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3885e10d-2571-4fe4-9551-71db9b0f35ca",
+                            ConcurrencyStamp = "2ecb6df0-19b1-4962-a1ab-08d983e3b762",
                             Email = "pesho_petrov@yahoo.com",
                             EmailConfirmed = false,
                             FirstName = "pesho",
@@ -150,10 +150,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PESHO_PETROV@YAHOO.COM",
                             NormalizedUserName = "PESHO_PETROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAIXR+C65IwSO0DZARCvnP+J0ianWu0kCJx1afFOVhL4/3EFkDkDtcox5pju0mUWOA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKcoixN/b+4Wp3+h3nHYMT9puV/v57YRgZUBitYApOVJ/xJ1COHCjWR6mj+otbIfvw==",
                             PhoneNumber = "0877777777",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "00969a08-0f2f-4cff-893d-bcb65891fb2e",
+                            SecurityStamp = "f8d02980-c245-4f67-8fc2-4703278a9108",
                             TwoFactorEnabled = false,
                             UserName = "pesho_petrov"
                         });
@@ -275,6 +275,60 @@ namespace CarRental.Migrations
                             Torque = 106,
                             TransmissionType = 0,
                             YearOfProduction = 2004
+                        },
+                        new
+                        {
+                            Id = new Guid("1201c5ee-8aa7-4400-9009-7bfc91fa4817"),
+                            AccelerationTo100 = 8.6999999999999993,
+                            BodyType = 0,
+                            ConsumptionPer100Km = 8.6999999999999993,
+                            CylindersNumber = 4,
+                            Displacement = 2000,
+                            EngineAspirationType = 0,
+                            EngineFuelType = 0,
+                            EngineStructureType = 0,
+                            Horsepower = 122,
+                            ImageURL = "https://i.pinimg.com/736x/bd/f1/67/bdf167075cbba99b9eeed9393ba24d65.jpg",
+                            IsActive = false,
+                            Make = "Mercedes",
+                            Mileage = 460000,
+                            Model = "190E",
+                            PeakHorsepowerAtRPM = 5300,
+                            PeakTorqueAtRPM = 3500,
+                            PricePerDay = 239.0,
+                            SafetyRating = 9.0999999999999996,
+                            Seats = 5,
+                            TopSpeed = 230,
+                            Torque = 178,
+                            TransmissionType = 1,
+                            YearOfProduction = 1991
+                        },
+                        new
+                        {
+                            Id = new Guid("1167ef05-3aaf-4ab8-8032-59d4d6bc2075"),
+                            AccelerationTo100 = 9.8000000000000007,
+                            BodyType = 0,
+                            ConsumptionPer100Km = 7.5,
+                            CylindersNumber = 4,
+                            Displacement = 2000,
+                            EngineAspirationType = 1,
+                            EngineFuelType = 3,
+                            EngineStructureType = 0,
+                            Horsepower = 140,
+                            ImageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/VW_Passat_B7_1.4_TSI_BMT_Trendline_Islandgrau.JPG/1280px-VW_Passat_B7_1.4_TSI_BMT_Trendline_Islandgrau.JPG",
+                            IsActive = false,
+                            Make = "Volkswagen",
+                            Mileage = 120000,
+                            Model = "Passat B7",
+                            PeakHorsepowerAtRPM = 4200,
+                            PeakTorqueAtRPM = 2500,
+                            PricePerDay = 99.0,
+                            SafetyRating = 7.2000000000000002,
+                            Seats = 5,
+                            TopSpeed = 211,
+                            Torque = 320,
+                            TransmissionType = 1,
+                            YearOfProduction = 2014
                         });
                 });
 
@@ -383,7 +437,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"),
-                            ConcurrencyStamp = "18f622e8-04aa-47c9-a03d-b9c13c1d701e",
+                            ConcurrencyStamp = "8eacdf59-6c37-4fe6-9aab-729d9d36dd20",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
