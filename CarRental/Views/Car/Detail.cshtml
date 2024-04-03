@@ -23,8 +23,14 @@
 				<p style="font-size:25px;"><u>@Model.Make</u></p>
 				<p>Price Per Day: <b>@($"{Model.PricePerDay:f2}") BGN</b></p>
 				<p>Model: <b>@Model.Model</b></p>
-				<p>Transmission: <b>@Model.SelectedTransmissionType</b></p>
+				<p>Year of production: <b>@Model.YearOfProduction</b></p>
+				<p>Safety Rating: <b>@($"{Model.SafetyRating:f2}")</b></p>
 				<p>Passenger Seats: <b>@Model.Seats</b></p>
+				<p>Transmission: <b>@Model.SelectedTransmissionType</b></p>
+				<p>Engine: <b>@Model.SelectedEngineStructureType @Model.CylindersNumber</b></p>
+				<p>Displacement: <b>@($"{Model.Displacement}")cc</b></p>
+				<p>Power: <b>@($"{Model.Horsepower}")Hp/@($"{Model.PeakHorsepowerAtRPM}")RPM</b></p>
+				<p>Torque: <b>@($"{Model.Torque}")Nm/@($"{Model.PeakTorqueAtRPM}")RPM</b></p>
 				<p><i>(@(Model.IsRented ? "Rented" : "Not Rented"))</i></p>
 
 				<div class="d-flex flex-row@(isAdmin ? string.Empty : "-user")">
