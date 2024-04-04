@@ -156,10 +156,10 @@ namespace CarRental.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id, CarViewModel carModel)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(carModel);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View(carModel);
+            }
 
             try
             {
