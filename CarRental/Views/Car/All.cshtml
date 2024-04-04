@@ -9,7 +9,7 @@
                 <div class="form-group" style="margin: 0 1em">
                     <label asp-for="Make" style="font-weight:700;">Make</label>
                     <select asp-for="Make" class="form-control" >
-                        <option style="color:#fff; font-weight:600;" value="">All</option>
+                        <option value="">All</option>
                         @foreach (var category in Model.Makes)
                         {
                             <option value="@category">@category</option>

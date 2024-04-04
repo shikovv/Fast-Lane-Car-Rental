@@ -101,9 +101,24 @@
 					<span asp-validation-for="Displacement" class="text-danger small"></span>
 				</div>
 				<div class="mb-3">
-					<label asp-for="Mileage" class="form-label">Mileage</label>
-					<input asp-for="Mileage" class="form-control" placeholder="Mileage">
-					<span asp-validation-for="Mileage" class="text-danger small"></span>
+					<label asp-for="Horsepower" class="form-label">Horsepower</label>
+					<input asp-for="Horsepower" class="form-control" placeholder="Horsepower">
+					<span asp-validation-for="Horsepower" class="text-danger small"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="PeakHorsepowerAtRPM" class="form-label">Peak hHorsepower At RPM</label>
+					<input asp-for="PeakHorsepowerAtRPM" class="form-control" placeholder="PeakHorsepowerAtRPM">
+					<span asp-validation-for="PeakHorsepowerAtRPM" class="text-danger small"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="Torque" class="form-label">Torque</label>
+					<input asp-for="Torque" class="form-control" placeholder="Torque">
+					<span asp-validation-for="Torque" class="text-danger small"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="PeakTorqueAtRPM" class="form-label">Peak Torque At RPM</label>
+					<input asp-for="PeakTorqueAtRPM" class="form-control" placeholder="PeakTorqueAtRPM">
+					<span asp-validation-for="PeakTorqueAtRPM" class="text-danger small"></span>
 				</div>
 				<div class="mb-3">
 					<label asp-for="AccelerationTo100" class="form-label">Acceleration</label>
@@ -111,14 +126,14 @@
 					<span asp-validation-for="AccelerationTo100" class="text-danger small"></span>
 				</div>
 				<div class="mb-3">
-					<label asp-for="Horsepower" class="form-label">HorsePower</label>
-					<input asp-for="Horsepower" class="form-control" placeholder="HorsePower">
-					<span asp-validation-for="Horsepower" class="text-danger small"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="TopSpeed" class="form-label">TopSpeed</label>
+					<label asp-for="TopSpeed" class="form-label">Top Speed</label>
 					<input asp-for="TopSpeed" class="form-control" placeholder="TopSpeed">
 					<span asp-validation-for="TopSpeed" class="text-danger small"></span>
+				</div>
+				<div class="mb-3">
+					<label asp-for="Mileage" class="form-label">Mileage</label>
+					<input asp-for="Mileage" class="form-control" placeholder="Mileage">
+					<span asp-validation-for="Mileage" class="text-danger small"></span>
 				</div>
 				<div class="mb-3">
 					<label asp-for="ImageURL" class="form-label">Image URL</label>
@@ -129,17 +144,6 @@
 					<label asp-for="ConsumptionPer100Km" class="form-label">Consumption</label>
 					<input asp-for="ConsumptionPer100Km" class="form-control placeholder="Consumption Per 100 Km">
 					<span asp-validation-for="ConsumptionPer100Km" class="text-danger small"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="SelectedFuelType" class="form-label">Engine Type</label>
-					<select asp-for="SelectedFuelType" class="form-select">
-						<option value="">Select Engine Type</option>
-						@foreach (var engineType in Model.EngineFuelTypes)
-						{
-							<option value="@engineType">@engineType.ToString()</option>
-						}
-					</select>
-					<span asp-validation-for="SelectedFuelType" class="text-danger small"></span>
 				</div>
 				<div class="text-center">
 					<input class="btn btn-primary mt-3" type="submit" value="Save" />

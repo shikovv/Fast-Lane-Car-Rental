@@ -79,7 +79,6 @@ namespace CarRental.Models.Car
         public string ImageURL { get; set; }
 		[Display(Name = "Is Rented")]
 		public bool IsRented { get; set; }
-		public RentalForm RentalForm { get; set; } = null!;
         public EngineAspirationType SelectedEngineAspirationType { get; set; }
         public BodyType SelectedBodyType { get; set; }
         public TransmissionType SelectedTransmissionType { get; set; }

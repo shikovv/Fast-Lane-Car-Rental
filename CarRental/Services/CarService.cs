@@ -203,11 +203,7 @@
                 SafetyRating = car.SafetyRating,
                 Seats = car.Seats,
                 PricePerDay = car.PricePerDay,
-                ImageURL = car.ImageURL,
-                RentalForm = new Models.Rental.RentalForm()
-                {
-                    CarId = car.Id.ToString()
-                }
+                ImageURL = car.ImageURL
             };
         }
 

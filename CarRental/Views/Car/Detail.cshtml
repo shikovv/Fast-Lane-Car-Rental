@@ -1,6 +1,8 @@
 ﻿@using CarRental.Extensions
 @using CarRental.Models.Car
 @using CarRental.Contracts
+@using System.Reflection
+@using System.ComponentModel
 @model CarViewModel
 @inject ICarService CarService
 
@@ -35,7 +37,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card border-0" style="background: transparent;margin-top:.8rem;text-align:center;width:fit-content;">
-                            <p>Fuel: <b>@($"{Model.SelectedFuelType}")</b></p>
+                            <p>Fuel: <b>@(EnumHelper.GetDisplayValue(Model.SelectedFuelType))</b></p>
                             <p>Displacement: <b>@($"{Model.Displacement}")cc</b></p>
                             <p>Power: <b>@($"{Model.Horsepower}")Hp/@($"{Model.PeakHorsepowerAtRPM}")RPM</b></p>
                             <p>Torque: <b>@($"{Model.Torque}")Nm/@($"{Model.PeakTorqueAtRPM}")RPM</b></p>
@@ -70,8 +72,6 @@
             </div>
         </div>
     </div>
-
-    <partial name="_RentModelPartial" model="@Model.RentalForm" />
 
     <link rel="stylesheet" href="~/css/car-detail.css" asp-append-version="true" />
 
