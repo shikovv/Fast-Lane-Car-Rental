@@ -213,21 +213,47 @@ namespace CarRental.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Rent(string id, RentalForm viewModel)
+        [HttpGet]
+        public async Task<IActionResult> Rent(string id)
         {
             try
             {
-                bool carExist = await carService.ExistById(Guid.Parse(id));
+                bool carExists = await carService
+                    .ExistById(Guid.Parse(id));
+
+                if (!carExists)
+                {
+                    TempData["ErrorMessage"] = "Car with the provided id does not exist!";
+
+                    return RedirectToAction("Detail", "Car");
+                }
+
+                RentalForm formModel = await carService
+                    .GetRentalFormById(Guid.Parse(id));
+
+                return View(formModel);
+            }
+            catch (Exception)
+            {
+                return GeneralError();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Rent(RentalForm viewModel)
+        {
+            try
+            {
+                bool carExist = await carService.ExistById(Guid.Parse(viewModel.CarId));
 
                 if (!carExist)
                 {
                     TempData["ErrorMessage"] = "Car with provided id does not exist! Please try again!";
 
-                    return RedirectToAction("Detail", "Car", new { id });
+                    return RedirectToAction("Detail", "Car", new { viewModel.CarId });
                 }
 
-                bool isCarRented = await carService.IsRentedById(Guid.Parse(id));
+                bool isCarRented = await carService.IsRentedById(Guid.Parse(viewModel.CarId));
 
                 if (isCarRented)
                 {
@@ -235,8 +261,6 @@ namespace CarRental.Controllers
 
                     return RedirectToAction("All", "Car");
                 }
-
-                viewModel.CarId = id;
 
                 await carService.RentCarAsync(viewModel, Guid.Parse(User.GetId())!);
 
@@ -250,7 +274,7 @@ namespace CarRental.Controllers
 
             if (this.User.IsAdmin())
             {
-                return RedirectToAction("Detail", "Car", new { id, Area = "" });
+                return RedirectToAction("Detail", "Car", new { viewModel.CarId, Area = "" });
             }
 
             return RedirectToAction("Mine", "Car");

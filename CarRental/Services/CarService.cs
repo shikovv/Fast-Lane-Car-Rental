@@ -332,6 +332,16 @@
             return car.RenterId.HasValue;
         }
 
+        public async Task<RentalForm> GetRentalFormById(Guid carId)
+        {
+
+            return new RentalForm
+            {
+                CarId = carId.ToString()
+            };
+
+        }
+
         public async Task<double?> RentCarAsync(RentalForm rentalForm, Guid userId)
         {
             double? change = 0;

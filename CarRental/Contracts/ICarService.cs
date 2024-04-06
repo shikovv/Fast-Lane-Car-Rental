@@ -19,5 +19,6 @@ namespace CarRental.Contracts
         Task LeaveCarById(Guid carId);
         Task<IEnumerable<string>> AllAvailableMakeNamesAsync();
         Task<CarViewModel> GetDetailsById(string id);
+        Task<RentalForm> GetRentalFormById(Guid carId);
     }
 }
