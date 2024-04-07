@@ -142,7 +142,7 @@
             //paging
             IEnumerable<CarAllViewModel> allCars = await query
                  .Include(c => c.Rentals)
-                 .Where(c => c.IsActive)
+                 .Where(c => c.IsActive==true)
                  .Skip((quaryModel.CurrentPage - 1) * quaryModel.CarsPerPage)
                  .Take(quaryModel.CarsPerPage)
                  .Select(c => new CarAllViewModel
@@ -156,7 +156,7 @@
                      ImageUrl = c.ImageURL,
                      PricePerDay = c.PricePerDay,
                      PassengerSeats = c.Seats,
-                     IsRented = c.RenterId.HasValue,
+                     IsRented = c.RenterId.HasValue
                  })
                  .ToArrayAsync();
 
@@ -176,7 +176,6 @@
                 .Include(c => c.Rentals)
                 .ThenInclude(r => r.UserRentals)
                 .ThenInclude(ur => ur.ApplicationUser)
-                .Where(c => c.IsActive)
                 .FirstAsync(c => c.Id.ToString() == carId);
 
             return new CarViewModel
@@ -203,7 +202,8 @@
                 SafetyRating = car.SafetyRating,
                 Seats = car.Seats,
                 PricePerDay = car.PricePerDay,
-                ImageURL = car.ImageURL
+                ImageURL = car.ImageURL,
+                IsActive = car.IsActive
             };
         }
 
@@ -211,7 +211,7 @@
         {
             List<CarAllViewModel> carsReady=new List<CarAllViewModel>();
             List<Car> cars= await context.Cars
-                .Where(c => c.IsActive == true&&
+                .Where(c => c.IsActive == false&&
                             c.RenterId.HasValue&&
                             c.RenterId==userId
                 )
@@ -317,7 +317,6 @@
         {
             bool result = await this.context
                 .Cars
-                .Where(c => c.IsActive)
                 .AnyAsync(c => c.Id == carId);
 
             return result;
@@ -351,7 +350,6 @@
                 .Where(c => c.IsActive)
                 .FirstAsync(c => c.Id.ToString() == rentalForm.CarId);
 
-            car.RenterId = userId;
 
             var user = await this.context.Users.FirstAsync(u => u.Id == userId);
 
@@ -372,6 +370,7 @@
                 };
                 this.context.Rentals.Add(rental);
                 car.IsActive = false;
+                car.RenterId = userId;
                 UserRental userRentals = new UserRental()
                 {
                     CustomerId = user.Id,
@@ -396,9 +395,18 @@
             Car car = await this.context
                 .Cars
                 .FirstAsync(c => c.Id == carId);
-
-            return car.IsActive
-                && car.RenterId == userId;
+            if(car.IsActive==true)
+            {
+                return false;
+            }
+            else if(car.IsActive==false&&car.RenterId!=userId)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public async Task LeaveCarById(Guid carId)

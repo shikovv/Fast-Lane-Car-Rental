@@ -1,28 +1,61 @@
-﻿@model CarRental.Models.Rental.RentalForm
+﻿@using CarRental.Models.Rental
+@model RentalForm
 
-<h2>Rent a Car</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rent Car</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Rent Car</h2>
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+        <form method="post">
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" class="form-control" id="phoneNumber" name="PhoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="deposit">Deposit:</label>
+                <input type="number" class="form-control" id="deposit" name="Deposit" required>
+            </div>
+            <div class="form-group">
+                <label for="days">Days:</label>
+                <input type="number" class="form-control" id="days" name="Days" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="Address" required>
+            </div>
+            <input type="hidden" name="CarId" value="@Model.CarId">
+            <button type="submit" class="btn btn-primary">Rent Car</button>
+        </form>
 
-<form method="post">
-    <input type="hidden" asp-for="CarId" />
-    <div class="form-group">
-        <label asp-for="PhoneNumber">Phone Number</label>
-        <input asp-for="PhoneNumber" class="form-control" />
-        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success mt-3" role="alert">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+        else if (TempData["Shortage"] != null)
+        {
+            <div class="alert alert-danger mt-3" role="alert">
+                You don't have enough deposit to rent the car. The shortage is: <b>@TempData["Shortage"]</b> BGN
+            </div>
+        }
+        else if (TempData["Change"] != null)
+        {
+            <div class="alert alert-success mt-3" role="alert">
+                You have successfully rented the car. Your change is: <b>@TempData["Change"]</b> BGN
+            </div>
+        }
     </div>
-    <div class="form-group">
-        <label asp-for="Deposit">Deposit</label>
-        <input asp-for="Deposit" class="form-control" />
-        <span asp-validation-for="Deposit" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Days">Days</label>
-        <input asp-for="Days" class="form-control" />
-        <span asp-validation-for="Days" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Address">Address</label>
-        <input asp-for="Address" class="form-control" />
-        <span asp-validation-for="Address" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Rent</button>
-</form>
+</body>
+</html>

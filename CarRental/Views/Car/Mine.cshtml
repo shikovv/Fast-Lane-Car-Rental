@@ -1,15 +1,25 @@
 ﻿@using CarRental.Models.Car
 @model List<CarAllViewModel>
-@{
-	ViewData["Title"] = "My cars";
-}
 
-<h2 class="text-center">@ViewData["Title"]</h2>
-<hr />
+<body style="overflow-y: auto;">
+<style>
+    .btn.btn-primary.disabled.ms-2 {
+        display: none;
+    }
+
+    .btn.btn-primary.disabled.me-2 {
+        display: none;
+    }
+
+    .card-img-top {
+        object-fit: cover;
+        height: 312px;
+    }
+</style>
 
 @if (!Model.Any())
 {
-	<h2 class="text-center">You don not have any cars yet!</h2>
+	<h2 class="text-center">You don't have any cars yet!</h2>
 }
 else
 {
@@ -20,4 +30,7 @@ else
 		}
 	</div>
 }
+
+<link href="~/css/AllCars.css" rel="stylesheet" />
+</body>
 
