@@ -43,6 +43,7 @@
                 Seats = model.Seats,
                 PricePerDay = model.PricePerDay,
                 ImageURL = model.ImageURL,
+                IsActive= model.IsActive
             };
 
             await this.context.Cars.AddAsync(car);
@@ -344,7 +345,6 @@
         public async Task<double?> RentCarAsync(RentalForm rentalForm, Guid userId)
         {
             double? change = 0;
-            double? shortage = 0;
             Car car = await this.context
                 .Cars
                 .Where(c => c.IsActive)
@@ -358,7 +358,8 @@
                 user.PhoneNumber = rentalForm.PhoneNumber;
             }
 
-            if (rentalForm.Deposit >= car.PricePerDay * rentalForm.Days)
+            change = rentalForm.Deposit - (car.PricePerDay * rentalForm.Days);
+            if(change > 0)
             {
                 Rental rental = new Rental()
                 {
@@ -377,17 +378,13 @@
                     RentalId = rental.Id,
                 };
                 this.context.UserRentals.Add(userRentals);
-                change = rentalForm.Deposit - (car.PricePerDay * rentalForm.Days);
                 await this.context.SaveChangesAsync();
                 return change;
             }
             else
             {
-                shortage = (car.PricePerDay * rentalForm.Days) - rentalForm.Deposit;
-                await this.context.SaveChangesAsync();
-                return shortage;
+                return change;
             }
-            
         }
 
         public async Task<bool> IsRentedByUserWithId(Guid carId, Guid userId)

@@ -76,10 +76,10 @@ namespace CarRental.Controllers
                 ModelState.AddModelError(nameof(EngineStructureType), "Invalid engine structure Type.");
             }
 
-            if (!ModelState.IsValid)
-            {
-                return View(formModel);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(formModel);
+            //}
 
             try
             {
@@ -262,17 +262,32 @@ namespace CarRental.Controllers
                     return RedirectToAction("All", "Car");
                 }
 
-                await carService.RentCarAsync(viewModel, Guid.Parse(User.GetId())!);
+                double? change=await carService.RentCarAsync(viewModel, Guid.Parse(User.GetId())!);
+                if(change<0)
+                {
+                    TempData["Shortage"] = $"{-change:f2}";
+                    return RedirectToAction("Rent", "Car");
+                }
 
-                TempData["SuccessMessage"] = "You rent successfully your selected car!";
+                else
+                {
+                    TempData["Change"] = $"{change:f2}";
+                    return RedirectToAction("Success", "Car");
+                }
+
             }
             catch (Exception)
             {
                 return GeneralError();
             }
-
-            return RedirectToAction("Mine", "Car");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Success(RentalForm viewModel)
+        {
+            return View(viewModel);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Leave(string id)
