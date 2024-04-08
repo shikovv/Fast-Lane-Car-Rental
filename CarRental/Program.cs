@@ -22,6 +22,7 @@ namespace CarRental
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             builder.Services.AddApplicationServices(typeof(ICarService));
             builder.Services.ConfigureApplicationCookie(options =>
             {

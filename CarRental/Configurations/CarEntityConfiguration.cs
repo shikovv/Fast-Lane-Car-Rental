@@ -23,7 +23,7 @@ namespace CarRental.Configurations
 
             cars.Add(new Car()
             {
-                Id = Guid.Parse("a6e93473-1479-442f-a73a-96a5f4f94b2f"),
+                Id = Guid.Parse("bdf5c65f-4470-4139-8ec3-8c3baf0e34d6"),
                 Make = "Ford",
                 Model = "Fiesta MK5",
                 BodyType = BodyType.Hatchback,
