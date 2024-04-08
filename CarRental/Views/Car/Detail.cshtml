@@ -53,7 +53,7 @@
                                     {
                                         <a asp-controller="Car" asp-action="Rent" asp-route-id="@Model.Id" class="btn btn-warning btn-sm-custom ml-2" style="margin:1rem;font-weight: 800; font-size: 20px;padding: 10px 20px;background:#1f6bc0;color:white;border: 3px solid rgba(0, 0, 0, .125);" id="openRentModal" role="button">Rent</a>
                                     }
-                                    else if (isCarRentedByUser || isAdmin)
+                                    else if (isCarRentedByUser)
                                     {
                                         <form method="post" asp-controller="Car" asp-action="Leave" asp-route-id="@Model.Id">
                                             <button type="submit" class="btn btn-danger btn-sm-custom ml-2" style="margin:1rem;font-weight: 800; font-size: 20px;padding: 10px 20px;background:#1f6bc0;color:white;border: 3px solid rgba(0, 0, 0, .125);">Leave</button>

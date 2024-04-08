@@ -271,12 +271,6 @@ namespace CarRental.Controllers
                 return GeneralError();
             }
 
-
-            if (this.User.IsAdmin())
-            {
-                return RedirectToAction("Detail", "Car", new { viewModel.CarId, Area = "" });
-            }
-
             return RedirectToAction("Mine", "Car");
         }
 
@@ -302,10 +296,9 @@ namespace CarRental.Controllers
                     return RedirectToAction("Mine", "Car");
                 }
 
-                bool isAdmin = User.IsAdmin();
                 bool isCurrUserRenterOfTheCar = await carService.IsRentedByUserWithId(Guid.Parse(id),Guid.Parse(User.GetId()!));
 
-                if (!isCurrUserRenterOfTheCar && !isAdmin)
+                if (!isCurrUserRenterOfTheCar)
                 {
                     TempData["ErrorMessage"] =
                         "You must be the renter of the car in order to leave it! Please try again with one of your rented cars if you wish to leave it.";
@@ -322,22 +315,12 @@ namespace CarRental.Controllers
                 return GeneralError();
             }
 
-
-            if (User.IsAdmin())
-            {
-                return RedirectToAction("All", "Rent", new { Area = "Admin" });
-            }
-
             return RedirectToAction("Mine", "Car");
         }
 
         [HttpGet]
         public async Task<IActionResult> Mine()
         {
-            if (User.IsAdmin())
-            {
-                return RedirectToAction("Mine", "Car", new { Area = "Admin" });
-            }
 
             List<CarAllViewModel> myCars = new List<CarAllViewModel>();
 
