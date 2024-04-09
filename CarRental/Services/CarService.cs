@@ -359,7 +359,7 @@
             }
 
             change = rentalForm.Deposit - (car.PricePerDay * rentalForm.Days);
-            if(change > 0)
+            if(change >= 0)
             {
                 Rental rental = new Rental()
                 {
