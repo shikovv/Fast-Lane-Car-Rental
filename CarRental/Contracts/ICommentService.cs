@@ -5,9 +5,8 @@ namespace CarRental.Contracts
 {
     public interface ICommentService
     {
-        Task<IEnumerable<CommentViewModel>> AllCommentsByCreationTime();
+        Task<IEnumerable<CommentDetailsModel>> AllCommentsByCreationTime();
         Task<bool> ExistById(Guid CommentId);
-        Task<CommentDetailsModel> GetCommentForDetailsById(Guid commentId);
         Task<string> CreateAndReturnId(CommentFormModel formModel, Guid userId);
         Task<CommentFormModel> GetCommentForEditById(Guid commentId);
         Task EditCommentByIdAndFormModel(Guid commentId, CommentFormModel commentModel);

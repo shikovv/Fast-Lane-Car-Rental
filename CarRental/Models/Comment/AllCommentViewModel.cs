@@ -4,8 +4,8 @@
     {
         public AllCommentViewModel() 
         { 
-            this.Comments=new HashSet<CommentViewModel>();
+            this.Comments=new HashSet<CommentDetailsModel>();
         }
-        public IEnumerable<CommentViewModel> Comments { get; set; }
+        public IEnumerable<CommentDetailsModel> Comments { get; set; }
     }
 }

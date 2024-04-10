@@ -12,20 +12,21 @@ namespace CarRental.Services
         private readonly ApplicationDbContext context;
         public CommentService(ApplicationDbContext dbContext)
         {
-            dbContext = context;
+            context = dbContext;
         }
 
-        public async Task<IEnumerable<CommentViewModel>> AllCommentsByCreationTime()
+        public async Task<IEnumerable<CommentDetailsModel>> AllCommentsByCreationTime()
         {
-            IEnumerable<CommentViewModel> allComments = await this.context
+            IEnumerable<CommentDetailsModel> allComments = await this.context
                  .Comments
-                 .Select(c => new CommentViewModel()
+                 .Select(c => new CommentDetailsModel()
                  {
                      Id = c.Id.ToString(),
                      Title = c.Title,
                      Description = c.Description,
                      CreatedOn = c.CreatedOn,
-                     StarsRating = c.StarsRating
+                     StarsRating = c.StarsRating,
+                     CreaterFullName = c.Creator.FirstName + " " + c.Creator.LastName
                  })
                  .OrderByDescending(c => c.CreatedOn)
                  .ToArrayAsync();
@@ -41,24 +42,6 @@ namespace CarRental.Services
                 .AnyAsync(c => c.Id == CommentId);
 
             return result;
-        }
-
-        public async Task<CommentDetailsModel> GetCommentForDetailsById(Guid commentId)
-        {
-            Comment comment = await this.context
-                .Comments
-                .Include(c => c.Creator)
-                .FirstAsync(c => c.Id == commentId);
-
-            return new CommentDetailsModel
-            {
-                Id = comment.Id,
-                Title = comment.Title,
-                Description = comment.Description,
-                StarsRating = comment.StarsRating,
-                CreatedOn = comment.CreatedOn,
-                CreaterFullName = comment.Creator.FirstName + " " + comment.Creator.LastName
-        };
         }
 
         public async Task<string> CreateAndReturnId(CommentFormModel formModel, Guid userId)

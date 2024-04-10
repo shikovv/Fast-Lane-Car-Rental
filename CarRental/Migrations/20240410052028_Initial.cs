@@ -267,16 +267,16 @@ namespace CarRental.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"), "a3f3aeb1-c574-48f8-a7eb-acef5c9a6bce", "Admin", "ADMIN" });
+                values: new object[] { new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"), "2ba343ad-8dae-4674-b554-e8ad474e728d", "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("8a5edc49-7490-493f-2f01-08db8a416485"), 0, "3edd7f39-82fe-42a6-9053-9fee684da744", "admin@gmail.com", false, "Stefan", "Shikov", false, null, "ADMIN@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECEzeu1nVXrfzeOjWwJxD1UK90AAU0zkhSSg71vTaDE1ememBy00PaaPuNolb2XPcw==", "0988360889", false, "32bad6d1-9205-4a0e-a004-86bf9b013fa0", false, "admin" },
-                    { new Guid("f06d4765-779a-4766-eb64-08db8a42133c"), 0, "54eeb3f6-41c4-49dd-9143-9d0edddcbc52", "ivan.ivanov@gmail.com", false, "Ivan", "Ivanov", false, null, "IVAN.IVANOV@GMAIL.COM", "IVAN IVANOV", "AQAAAAEAACcQAAAAEFaKZNITZvDJ7l3iRMebFzyvGT2WN/WitqMyhBzeN0wIBlxnjpt4oLofCZA8qLLaIg==", "0899999999", false, "6ce8d47a-d0ef-4d61-991b-23906d0c242f", false, "Ivan Ivanov" },
-                    { new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), 0, "f81aef46-c6c1-43b1-9465-9b7a70b69bb4", "pesho_petrov@yahoo.com", false, "pesho", "petrov", false, null, "PESHO_PETROV@YAHOO.COM", "PESHO_PETROV", "AQAAAAEAACcQAAAAEJ7FJTu+8xn1wMJBFXbfjUeG29vTP3REnGHRAFRhN0GbmZnnm0uulBQzETFFWw69NA==", "0877777777", false, "dfca4901-6c81-41fa-8fd9-3c9f618459ad", false, "pesho_petrov" }
+                    { new Guid("8a5edc49-7490-493f-2f01-08db8a416485"), 0, "d94e8384-f0d0-4095-8ecc-1cefb1343758", "admin@gmail.com", false, "Stefan", "Shikov", false, null, "ADMIN@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEDmS6ijaJ0OaejMNrGZ1qqDHfQy4Wm9rJu0349Y2IxHaJxXssjkFSOKqK7xU6FsNLw==", "0988360889", false, "f5122e46-9a3e-4a2d-8bfd-4313a031f888", false, "admin" },
+                    { new Guid("f06d4765-779a-4766-eb64-08db8a42133c"), 0, "e8f0aaed-ab68-4b96-a931-6096a05460dd", "ivan.ivanov@gmail.com", false, "Ivan", "Ivanov", false, null, "IVAN.IVANOV@GMAIL.COM", "IVAN IVANOV", "AQAAAAEAACcQAAAAEPpDTwdZlV+tBiy07cjSiQu1IPgyB/1Pt6F/Qq9Hx56W6WON4luCKenpcFYD0JKDWA==", "0899999999", false, "aeff0875-5cee-4051-8a9d-534b2b286c84", false, "Ivan Ivanov" },
+                    { new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), 0, "2d320a91-4be0-446a-8d1f-3902ecd509f8", "pesho_petrov@yahoo.com", false, "pesho", "petrov", false, null, "PESHO_PETROV@YAHOO.COM", "PESHO_PETROV", "AQAAAAEAACcQAAAAEOCh4qvgUQj2ga58pHcoF5/4M7BQ66Ahc0ubN/xq1ObYsBKNEI/IF5HOHPEt4Zyctg==", "0877777777", false, "975f6b89-3188-4264-a904-c1e44a1a8205", false, "pesho_petrov" }
                 });
 
             migrationBuilder.InsertData(
@@ -297,7 +297,7 @@ namespace CarRental.Migrations
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "CreatedOn", "CreatorId", "Description", "StarsRating", "Title" },
-                values: new object[] { new Guid("df0bd291-45c5-4ac0-a927-27b27ddbd821"), new DateTime(2024, 4, 9, 19, 53, 51, 933, DateTimeKind.Utc).AddTicks(6533), new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), "Exceptional service from Fast Lane Car Rental! The rental process was seamless, and the car exceeded my expectations. Will definitely be using their services again!", 5, "Reccomend it!" });
+                values: new object[] { new Guid("df0bd291-45c5-4ac0-a927-27b27ddbd821"), new DateTime(2024, 4, 10, 5, 20, 27, 851, DateTimeKind.Utc).AddTicks(839), new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), "Exceptional service from Fast Lane Car Rental! The rental process was seamless, and the car exceeded my expectations. Will definitely be using their services again!", 5, "Reccomend it!" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

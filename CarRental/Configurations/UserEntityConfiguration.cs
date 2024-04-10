@@ -55,8 +55,8 @@ namespace CarRental.Configurations
                 NormalizedUserName = "PESHO_PETROV",
                 Email = "pesho_petrov@yahoo.com",
                 NormalizedEmail = "PESHO_PETROV@YAHOO.COM",
-                FirstName = "pesho",
-                LastName = "petrov",
+                FirstName = "Pesho",
+                LastName = "Petrov",
                 SecurityStamp = Guid.NewGuid().ToString(),
                 PhoneNumber = "0877777777",
             };
