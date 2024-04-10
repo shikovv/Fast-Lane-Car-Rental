@@ -1,0 +1,30 @@
+﻿@using CarRental.Models.Comment
+@model CommentViewModel
+<body style="overflow-y: auto;">
+    <style>
+        .btn.btn-primary.disabled.ms-2 {
+            display: none;
+        }
+
+        .btn.btn-primary.disabled.me-2 {
+            display: none;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 312px;
+        }
+    </style>
+
+    @if (!Model.Cars.Any())
+    {
+        <h2 class="text-center">No cars found by the given criteria!</h2>
+    }
+    <div class="row m-0">
+        @foreach (var house in Model.Cars)
+        {
+            <partial name="_CarPartial" model="@house" />
+        }
+    </div>
+    <link href="~/css/AllCars.css" rel="stylesheet" />
+</body>

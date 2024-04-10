@@ -267,16 +267,16 @@ namespace CarRental.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"), "e1cbcbd6-fef5-4447-9dd1-1845e9c6dcd3", "Admin", "ADMIN" });
+                values: new object[] { new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"), "a3f3aeb1-c574-48f8-a7eb-acef5c9a6bce", "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("8a5edc49-7490-493f-2f01-08db8a416485"), 0, "b4090a07-5635-43de-b175-7c04813876ec", "admin@gmail.com", false, "Stefan", "Shikov", false, null, "ADMIN@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEP8/OdiIoD5XmqG5s9zqTLT1ceHx97Z2a+tHeh5QBruqg3JVRjfzebUfTRpsnFOrNg==", "0988360889", false, "64567a45-6fa0-41c6-a557-c3fb75a6c588", false, "admin" },
-                    { new Guid("f06d4765-779a-4766-eb64-08db8a42133c"), 0, "d10aa930-0c80-437f-8ab7-549ce63d3af4", "ivan.ivanov@gmail.com", false, "Ivan", "Ivanov", false, null, "IVAN.IVANOV@GMAIL.COM", "IVAN IVANOV", "AQAAAAEAACcQAAAAEF9L5p5isKGRvjUgAKZb+vPEAelinmvLW+U2Q1MqMjwzY/pBHHxDWrnRmiJ2aG3QJA==", "0899999999", false, "66958f76-30f7-4b6a-9da0-e9919446c547", false, "Ivan Ivanov" },
-                    { new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), 0, "db6c62c7-462b-4985-9ad1-7d390a37c0d5", "pesho_petrov@yahoo.com", false, "pesho", "petrov", false, null, "PESHO_PETROV@YAHOO.COM", "PESHO_PETROV", "AQAAAAEAACcQAAAAEAoupL7+jfzcxuFaecUbAhTuimdGB19cpQnbTEEy6SBXARcW4kIkSJ6m52vSn/oulw==", "0877777777", false, "2739c0f0-7b15-4a2c-a3aa-a4f484864e35", false, "pesho_petrov" }
+                    { new Guid("8a5edc49-7490-493f-2f01-08db8a416485"), 0, "3edd7f39-82fe-42a6-9053-9fee684da744", "admin@gmail.com", false, "Stefan", "Shikov", false, null, "ADMIN@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECEzeu1nVXrfzeOjWwJxD1UK90AAU0zkhSSg71vTaDE1ememBy00PaaPuNolb2XPcw==", "0988360889", false, "32bad6d1-9205-4a0e-a004-86bf9b013fa0", false, "admin" },
+                    { new Guid("f06d4765-779a-4766-eb64-08db8a42133c"), 0, "54eeb3f6-41c4-49dd-9143-9d0edddcbc52", "ivan.ivanov@gmail.com", false, "Ivan", "Ivanov", false, null, "IVAN.IVANOV@GMAIL.COM", "IVAN IVANOV", "AQAAAAEAACcQAAAAEFaKZNITZvDJ7l3iRMebFzyvGT2WN/WitqMyhBzeN0wIBlxnjpt4oLofCZA8qLLaIg==", "0899999999", false, "6ce8d47a-d0ef-4d61-991b-23906d0c242f", false, "Ivan Ivanov" },
+                    { new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), 0, "f81aef46-c6c1-43b1-9465-9b7a70b69bb4", "pesho_petrov@yahoo.com", false, "pesho", "petrov", false, null, "PESHO_PETROV@YAHOO.COM", "PESHO_PETROV", "AQAAAAEAACcQAAAAEJ7FJTu+8xn1wMJBFXbfjUeG29vTP3REnGHRAFRhN0GbmZnnm0uulBQzETFFWw69NA==", "0877777777", false, "dfca4901-6c81-41fa-8fd9-3c9f618459ad", false, "pesho_petrov" }
                 });
 
             migrationBuilder.InsertData(
@@ -293,6 +293,11 @@ namespace CarRental.Migrations
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[] { new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"), new Guid("8a5edc49-7490-493f-2f01-08db8a416485") });
+
+            migrationBuilder.InsertData(
+                table: "Comments",
+                columns: new[] { "Id", "CreatedOn", "CreatorId", "Description", "StarsRating", "Title" },
+                values: new object[] { new Guid("df0bd291-45c5-4ac0-a927-27b27ddbd821"), new DateTime(2024, 4, 9, 19, 53, 51, 933, DateTimeKind.Utc).AddTicks(6533), new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), "Exceptional service from Fast Lane Car Rental! The rental process was seamless, and the car exceeded my expectations. Will definitely be using their services again!", 5, "Reccomend it!" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
