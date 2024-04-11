@@ -24,32 +24,7 @@ namespace CarRental.Controllers
             return View(model);
         }
 
-
-        //public async Task<IActionResult> Detail(string id)
-        //{
-        //    bool commentExists = await this.commentService
-        //        .ExistById(Guid.Parse(id));
-
-        //    if (!commentExists)
-        //    {
-        //        TempData["ErrorMessage"] = "Comment with the provided id does not exist!";
-
-        //        return RedirectToAction("All", "Comment");
-        //    }
-
-        //    try
-        //    {
-        //        CommentDetailsModel viewModel = await this.commentService
-        //            .GetCommentForDetailsById(Guid.Parse(id));
-
-        //        return View(viewModel);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return GeneralError();
-        //    }
-        //}
-
+        [HttpGet]
         public async Task<IActionResult> Add()
         {
             CommentFormModel formModel = new CommentFormModel();

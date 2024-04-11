@@ -9,95 +9,103 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CarRental
 build_property.RootNamespace = CarRental
-build_property.ProjectDir = C:\Users\12B_2\Desktop\Diplomen proekt\Fast-Lane-Car-Rental\CarRental\
+build_property.ProjectDir = C:\Users\user\Desktop\Fast Lane Car Rental\CarRental\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\12B_2\Desktop\Diplomen proekt\Fast-Lane-Car-Rental\CarRental
+build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\Fast Lane Car Rental\CarRental
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Car/Add.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Car/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Car/All.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Car/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Car/Detail.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Car/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Car/Edit.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Car/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Car/Mine.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Car/Mine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXE1pbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Car/Rent.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Car/Rent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXFJlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Car/Success.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Car/Success.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXFN1Y2Nlc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Comment/All.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Comment/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Comment/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Home/Index.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Home/Privacy.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Shared/Error.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Shared/_CarFormPartial.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Shared/_CarFormPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXJGb3JtUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Shared/_CarPartial.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Shared/_CarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXJQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Shared/_CommentFormPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db21tZW50Rm9ybVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/User/Login.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/User/Register.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/_ViewImports.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/_ViewStart.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/12B_2/Desktop/Diplomen proekt/Fast-Lane-Car-Rental/CarRental/Views/Shared/_Layout.cshtml]
+[C:/Users/user/Desktop/Fast Lane Car Rental/CarRental/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-pihumplo1e
