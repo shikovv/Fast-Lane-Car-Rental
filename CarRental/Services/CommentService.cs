@@ -26,7 +26,8 @@ namespace CarRental.Services
                      Description = c.Description,
                      CreatedOn = c.CreatedOn,
                      StarsRating = c.StarsRating,
-                     CreaterFullName = c.Creator.FirstName + " " + c.Creator.LastName
+                     CreaterFullName = c.Creator.FirstName + " " + c.Creator.LastName,
+                     CreaterId=c.CreatorId.ToString()
                  })
                  .OrderByDescending(c => c.CreatedOn)
                  .ToArrayAsync();
@@ -51,7 +52,7 @@ namespace CarRental.Services
                 Title = formModel.Title,
                 Description = formModel.Description,
                 StarsRating=formModel.StarsRating,
-                CreatedOn = formModel.CreatedOn,
+                CreatedOn = DateTime.Now,
                 CreatorId = userId
             };
 

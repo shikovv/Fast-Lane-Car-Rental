@@ -4,6 +4,7 @@ using CarRental.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240410212612_Initial6")]
+    partial class Initial6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +104,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("8a5edc49-7490-493f-2f01-08db8a416485"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "18c4b810-f4cf-4703-9b00-86ec2085f1c9",
+                            ConcurrencyStamp = "25f84141-d879-4ae4-ba04-a0350ae6a8e3",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stefan",
@@ -110,10 +112,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAENMsYK3cU4YkyPGQavSwM3u6JIdY0tOFO0HQbnHwNsAo77KIvPDKp63aSh8r479g/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAvVsujl1lmUmTtVQUalaEpI3w0acBgIRmIEK0vPL6B/mk5dNINCyn9lCcoh8XBDRw==",
                             PhoneNumber = "0988360889",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "215ae6d9-7462-4ea6-83fe-f53314b48f7f",
+                            SecurityStamp = "c16b8da4-dec5-43cc-afd1-011708c9617c",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -121,7 +123,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f06d4765-779a-4766-eb64-08db8a42133c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cc14491b-310a-4b47-8bd6-b9885ae15d15",
+                            ConcurrencyStamp = "05a945d5-fdd9-4e26-9744-c7251f8bcf05",
                             Email = "ivan.ivanov@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -129,10 +131,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "IVAN.IVANOV@GMAIL.COM",
                             NormalizedUserName = "IVAN IVANOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBxltIVXIBp+4qeQgnNoylObGXFIwcNR+DFKmyruwGGjTyRXvHnomXmsw4uULF0WWA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKPwrVd1n2lBU5YExoVYRags7p6sO0eGyTGdtWphXFZzyI5bPJT16v9zh2LOoy6xLA==",
                             PhoneNumber = "0899999999",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "66d93f64-5c26-4585-ae62-3c6461d200f8",
+                            SecurityStamp = "ce9755a2-cff6-4ecc-94fc-0aaecfda1166",
                             TwoFactorEnabled = false,
                             UserName = "Ivan Ivanov"
                         },
@@ -140,7 +142,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1796e3e8-cf33-4cf6-8571-62bbcbcb484f",
+                            ConcurrencyStamp = "0a382899-5df1-4c9a-a8e4-728834f8b4c1",
                             Email = "pesho_petrov@yahoo.com",
                             EmailConfirmed = false,
                             FirstName = "Pesho",
@@ -148,10 +150,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PESHO_PETROV@YAHOO.COM",
                             NormalizedUserName = "PESHO_PETROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMVGyCSTmA3qMqiY4DGVRYIdJ7u+oTXC9lIOFMDMW/wDV7ukr/U1BaoTDL7V1sTMSA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELhgSAdRWYoQEqhm5bBFM9lsA4bQVcNJJLNsQiSlVTmIAl5SuVQ+GbARcIGaPIyLug==",
                             PhoneNumber = "0877777777",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4747394c-3e11-4395-b3cc-ddfa99b7b58b",
+                            SecurityStamp = "6ede26d5-b825-4adb-b4df-5716f9da41e8",
                             TwoFactorEnabled = false,
                             UserName = "pesho_petrov"
                         });
@@ -364,7 +366,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("df0bd291-45c5-4ac0-a927-27b27ddbd821"),
-                            CreatedOn = new DateTime(2024, 4, 11, 22, 24, 47, 622, DateTimeKind.Local).AddTicks(9621),
+                            CreatedOn = new DateTime(2024, 4, 11, 0, 26, 12, 249, DateTimeKind.Local).AddTicks(751),
                             CreatorId = new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"),
                             Description = "Exceptional service from Fast Lane Car Rental! The rental process was seamless, and the car exceeded my expectations. Will definitely be using their services again!",
                             StarsRating = 5,
@@ -373,7 +375,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("9bdc6a38-e9f4-4cdf-8b9e-b329e0f0233c"),
-                            CreatedOn = new DateTime(2024, 4, 11, 22, 24, 47, 622, DateTimeKind.Local).AddTicks(9672),
+                            CreatedOn = new DateTime(2024, 4, 11, 0, 26, 12, 249, DateTimeKind.Local).AddTicks(799),
                             CreatorId = new Guid("f06d4765-779a-4766-eb64-08db8a42133c"),
                             Description = "Fast Lane Car Rental made my trip an absolute breeze! Their extensive selection of vehicles ensured I found the perfect ride for my adventure. The seamless rental process and friendly staff made the experience top-notch. Highly recommend!",
                             StarsRating = 4,
@@ -382,7 +384,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("6db74b16-8cc7-4709-9fce-9e8a30939efc"),
-                            CreatedOn = new DateTime(2024, 4, 11, 22, 24, 47, 622, DateTimeKind.Local).AddTicks(9678),
+                            CreatedOn = new DateTime(2024, 4, 11, 0, 26, 12, 249, DateTimeKind.Local).AddTicks(810),
                             CreatorId = new Guid("8a5edc49-7490-493f-2f01-08db8a416485"),
                             Description = "My experience with Fast Lane Car Rental exceeded all expectations. From booking to drop-off, everything was flawless. The quality of their vehicles and the professionalism of their team truly set them apart. Will definitely be returning for my future rental needs!",
                             StarsRating = 4,
@@ -464,7 +466,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"),
-                            ConcurrencyStamp = "3f6b1ba5-efe1-4b13-bdc9-02f70b20b61c",
+                            ConcurrencyStamp = "bac9196c-bff0-4582-b815-ef841e9b6420",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

@@ -29,7 +29,7 @@ namespace CarRental.Controllers
         {
             CommentFormModel formModel = new CommentFormModel();
 
-            return this.View(formModel);
+            return View(formModel);
         }
 
         [HttpPost]
@@ -42,12 +42,11 @@ namespace CarRental.Controllers
 
             try
             {
-                string carId =
                     await commentService.CreateAndReturnId(formModel, Guid.Parse(this.User.GetId())!);
 
                 TempData["SuccessMessage"] = "Comment was added successfully!";
 
-                return RedirectToAction("Detail", "Comment", new { id = carId });
+                return RedirectToAction("All", "Comment");
             }
             catch (Exception)
             {
@@ -81,7 +80,7 @@ namespace CarRental.Controllers
                     TempData["ErrorMessage"] =
                         "You must be the creator of the comment in order to edit it!";
 
-                    return RedirectToAction("Detail", "Comment", new { id });
+                    return RedirectToAction("All", "Comment");
                 }
 
                 CommentFormModel formModel = await commentService
@@ -138,7 +137,7 @@ namespace CarRental.Controllers
                 return View(commentModel);
             }
 
-            return RedirectToAction("Detail", "comment", new { id });
+            return RedirectToAction("All", "comment");
         }
 
         [HttpPost]

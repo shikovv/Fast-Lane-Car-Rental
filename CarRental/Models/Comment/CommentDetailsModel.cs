@@ -10,5 +10,6 @@ namespace CarRental.Models.Comment
         public int StarsRating { get; set; }
         public DateTime CreatedOn { get; set; }
         public string CreaterFullName { get; set; }
+        public string CreaterId { get; set;}
     }
 }

@@ -24,6 +24,7 @@ namespace CarRental
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddApplicationServices(typeof(ICarService));
+            builder.Services.AddApplicationServices(typeof(ICommentService));
             builder.Services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/User/Login";

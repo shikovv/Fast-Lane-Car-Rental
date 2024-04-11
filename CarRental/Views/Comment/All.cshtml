@@ -1,49 +1,76 @@
-﻿@using CarRental.Models.Comment
+﻿@using CarRental.Extensions
+@using CarRental.Models.Comment
 @model AllCommentViewModel
-<body style="overflow-y: auto;">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Comments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .btn.btn-primary.disabled.ms-2 {
-            display: none;
-        }
-
-        .btn.btn-primary.disabled.me-2 {
-            display: none;
-        }
-
         .card-img-top {
             object-fit: cover;
             height: 312px;
         }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
     </style>
- 
-    @if (!Model.Comments.Any())
-    {
-        <h2 class="text-center">No comments found by the given criteria!</h2>
-    }
-
-    <div class="blog-posts">
-        <div class="container">
-            <div class="sidebar-item comments">
-                <div class="content">
-                    <ul>
-                        @foreach (var house in Model.Comments)
-                        {
-                            <li style="display: flex; align-items: center;">
-                                <div class="right-content" style="margin-left: 10px;">
-                                    <h4>@house.Title<span style="font-size:12px; color:darkgrey;margin-left:30px;">@house.CreatedOn</span></h4>
-                                    <p>@house.Description</p>
-                                        @for (int i = 0; i < house.StarsRating; i++)
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">All Comments</h2>
+                @if (!Model.Comments.Any())
+                {
+                    <h3 class="text-center">No comments found.</h3>
+                }
+                else
+                {
+                    <div class="blog-posts">
+                        <div class="container">
+                            <div class="sidebar-item comments">
+                                <div class="content">
+                                    <ul>
+                                        @foreach (var comment in Model.Comments)
                                         {
-                                        <i class="fa-solid fa-star" style="color: yellow"></i>
-                                        }                   
-                                    <h5 style="text-align:right">-@house.CreaterFullName</h5>
-                                </div>
-                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+                                                <div class="comment-container">
+                                                    <div class="right-content">
+                                                        <h4>@comment.Title<span style="font-size:12px; color:darkgrey;margin-left:30px;">@comment.CreatedOn</span></h4>
+                                                        <p>@comment.Description</p>
+                                                        <div class="rating">
+                                                            @for (int i = 0; i < comment.StarsRating; i++)
+                                                            {
+                                                                <i class="fa-solid fa-star" style="color: yellow"></i>
+                                                            }
+                                                        </div>
+                                                        <h5 style="text-align:right">-@comment.CreaterFullName</h5>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    @if(User.IsAdmin()||User.GetId()==comment.CreaterId)
+                                                    {
+                                                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-warning btn-sm-custom ml-2" style="background-color:#0d6efd;">Edit</a>
 
-                        }
-                    </ul>
-                </div>
+                                                    }
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </body>
+</html>
+  
