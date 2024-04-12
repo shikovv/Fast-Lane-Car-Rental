@@ -19,6 +19,13 @@
             justify-content: center;
             margin-top: 20px;
         }
+
+        /* Remove marker dot */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -54,10 +61,15 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    @if(User.IsAdmin()||User.GetId()==comment.CreaterId)
+                                                    @if (User.GetId().ToUpper() == comment.CreaterId.ToUpper())
                                                     {
-                                                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-warning btn-sm-custom ml-2" style="background-color:#0d6efd;">Edit</a>
-
+                                                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-warning btn-sm-custom" style="border: 3px solid rgba(0, 0, 0, .125); color: #fff; background-color: #0d6efd; margin-right: 5px; display: inline-block;">Edit</a>
+                                                    }
+                                                    @if (User.IsAdmin() || User.GetId().ToUpper() == comment.CreaterId.ToUpper())
+                                                    {
+                                                        <form method="post" style="display: inline-block;">
+                                                            <button type="submit" asp-area="" asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-danger" style="border: 3px solid rgba(0, 0, 0, .125); color: #fff; background-color: #0d6efd; margin-right: 5px; display: inline-block;">Delete</button>
+                                                        </form>
                                                     }
                                                 </div>
                                             </li>
@@ -73,4 +85,3 @@
     </div>
 </body>
 </html>
-  

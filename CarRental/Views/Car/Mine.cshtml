@@ -1,7 +1,7 @@
 ﻿@using CarRental.Models.Car
 @model List<CarAllViewModel>
 
-<body style="overflow-y: auto;">
+<body style="overflow-y: auto;overflow-x: hidden;">
 <style>
     .btn.btn-primary.disabled.ms-2 {
         display: none;
@@ -23,7 +23,7 @@
 }
 else
 {
-	<div class="row">
+	<div class="row m-0">
 		@foreach (CarAllViewModel car in Model)
 		{
 			<partial name="_CarPartial" model="car" />
