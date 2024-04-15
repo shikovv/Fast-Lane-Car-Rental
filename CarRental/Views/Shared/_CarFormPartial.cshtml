@@ -15,7 +15,7 @@
         }
 
         .form-label,
-        .form-control {
+        .form-control::placeholder {
             color: #fff !important;
             font-weight: 600;
         }
@@ -24,6 +24,34 @@
             padding: 13px 55px;
             margin-bottom: 1.3em;
         }
+
+        .form-select option {
+            color: #fff;
+            background-color: #0b1c3f;
+        }
+
+        .form-control {
+            color: #000 !important;
+        }
+
+        .text-danger {
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(#141e30, #243b55);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #03e9f4;
+            border-radius: 6px;
+        }
+
     </style>
 </head>
 <body>
@@ -34,23 +62,22 @@
                 <form asp-area="" method="post">
                     <div class="mb-3">
                         <label asp-for="Make" class="form-label">Make</label>
-                        <input asp-for="Make" class="form-control text-white fw-bold" placeholder="Make">
+                        <input asp-for="Make" class="form-control text-white fw-bold" placeholder="Make" required>
                         <span asp-validation-for="Make" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Model" class="form-label">Model</label>
-                        <input asp-for="Model" class="form-control text-white fw-bold" placeholder="Model">
+                        <input asp-for="Model" class="form-control text-white fw-bold" placeholder="Model" required>
                         <span asp-validation-for="Model" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="PricePerDay" class="form-label">Daily Price</label>
-                        <input asp-for="PricePerDay" class="form-control text-white fw-bold">
+                        <input asp-for="PricePerDay" class="form-control text-white fw-bold" placeholder="Daily Price" required>
                         <span asp-validation-for="PricePerDay" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="SelectedBodyType" class="form-label">Body Type</label>
-                        <select asp-for="SelectedBodyType" class="form-select text-white fw-bold">
-                            <option value="">Select Body Type</option>
+                        <select asp-for="SelectedBodyType" class="form-select text-white fw-bold" required style="color: #000 !important;">
                             @foreach (var bodyType in Model.BodyTypes)
                             {
                                 <option value="@bodyType">@bodyType.ToString()</option>
@@ -60,120 +87,116 @@
                     </div>
                     <div class="mb-3">
                         <label asp-for="YearOfProduction" class="form-label">Year</label>
-                        <input asp-for="YearOfProduction" class="form-control text-white fw-bold" placeholder="Year Of Production">
+                        <input asp-for="YearOfProduction" class="form-control text-white fw-bold" placeholder="Year" required>
                         <span asp-validation-for="YearOfProduction" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="SafetyRating" class="form-label">Safety Rating</label>
-                        <input asp-for="SafetyRating" class="form-control text-white fw-bold" placeholder="Safety Rating">
+                        <input asp-for="SafetyRating" class="form-control text-white fw-bold" placeholder="Safety Rating" required>
                         <span asp-validation-for="SafetyRating" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Seats" class="form-label">Passenger Seats</label>
-                        <input asp-for="Seats" class="form-control text-white fw-bold" placeholder="Seats">
+                        <input asp-for="Seats" class="form-control text-white fw-bold" placeholder="Passenger Seats" required>
                         <span asp-validation-for="Seats" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
-                        <label asp-for="SelectedTransmissionType" class="form-label">Transmission Type</label>
-                        <select asp-for="SelectedTransmissionType" class="form-select text-white fw-bold">
-                            <option value="">Select Transmission Type</option>
-                            @foreach (var transmissionType in Model.TransmissionTypes)
+                        <label asp-for="SelectedTransmissionType" class="form-label">Transmission</label>
+                        <select asp-for="SelectedTransmissionType" class="form-select text-white fw-bold" required style="color: #000 !important;">
+                            @foreach (var transmission in Model.TransmissionTypes)
                             {
-                                <option value="@transmissionType">@transmissionType.ToString()</option>
+                                <option value="@transmission">@transmission.ToString()</option>
                             }
                         </select>
                         <span asp-validation-for="SelectedTransmissionType" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="SelectedEngineStructureType" class="form-label">Engine Structure Type</label>
-                        <select asp-for="SelectedEngineStructureType" class="form-select text-white fw-bold">
-                            <option value="">Select Engine Structure Type</option>
-                            @foreach (var engineStructureType in Model.EngineStructureTypes)
+                        <select asp-for="SelectedEngineStructureType" class="form-select text-white fw-bold" required style="color: #000 !important;">
+                            @foreach (var structure in Model.EngineStructureTypes)
                             {
-                                <option value="@engineStructureType">@engineStructureType.ToString()</option>
+                                <option value="@structure">@structure.ToString()</option>
                             }
                         </select>
                         <span asp-validation-for="SelectedEngineStructureType" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
-                        <label asp-for="CylindersNumber" class="form-label">Cylinders Number</label>
-                        <input asp-for="CylindersNumber" class="form-control text-white fw-bold" placeholder="Cylinders Number">
+                        <label asp-for="CylindersNumber" class="form-label">Cylinders</label>
+                        <input asp-for="CylindersNumber" class="form-control text-white fw-bold" placeholder="Cylinders" required>
                         <span asp-validation-for="CylindersNumber" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
-                        <label asp-for="SelectedEngineAspirationType" class="form-label">Engine Aspiration Type</label>
-                        <select asp-for="SelectedEngineAspirationType" class="form-select text-white fw-bold">
-                            <option value="">Select Engine Aspiration Type</option>
-                            @foreach (var engineAspirationType in Model.EngineAspirationTypes)
+                        <label asp-for="SelectedEngineAspirationType" class="form-label">Engine Aspiration</label>
+                        <select asp-for="SelectedEngineAspirationType" class="form-select text-white fw-bold" required style="color: #000 !important;">
+                            @foreach (var aspiration in Model.EngineAspirationTypes)
                             {
-                                <option value="@engineAspirationType">@engineAspirationType.ToString()</option>
+                                <option value="@aspiration">@aspiration.ToString()</option>
                             }
                         </select>
                         <span asp-validation-for="SelectedEngineAspirationType" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="SelectedFuelType" class="form-label">Fuel Type</label>
-                        <select asp-for="SelectedFuelType" class="form-select text-white fw-bold">
-                            <option value="">Select Fuel Type</option>
-                            @foreach (var fuelType in Model.EngineFuelTypes)
+                        <select asp-for="SelectedFuelType" class="form-select text-white fw-bold" required style="color: #000 !important;">
+                            @foreach (var fuel in Model.EngineFuelTypes)
                             {
-                                <option value="@fuelType">@fuelType.ToString()</option>
+                                <option value="@fuel">@fuel.ToString()</option>
                             }
                         </select>
                         <span asp-validation-for="SelectedFuelType" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Displacement" class="form-label">Displacement</label>
-                        <input asp-for="Displacement" class="form-control text-white fw-bold" placeholder="Displacement">
+                        <input asp-for="Displacement" class="form-control text-white fw-bold" placeholder="Displacement" required>
                         <span asp-validation-for="Displacement" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Horsepower" class="form-label">Horsepower</label>
-                        <input asp-for="Horsepower" class="form-control text-white fw-bold" placeholder="Horsepower">
+                        <input asp-for="Horsepower" class="form-control text-white fw-bold" placeholder="Horsepower" required>
                         <span asp-validation-for="Horsepower" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="PeakHorsepowerAtRPM" class="form-label">Peak Horsepower At RPM</label>
-                        <input asp-for="PeakHorsepowerAtRPM" class="form-control text-white fw-bold" placeholder="Peak Horsepower At RPM">
+                        <input asp-for="PeakHorsepowerAtRPM" class="form-control text-white fw-bold" placeholder="Peak Horsepower At RPM" required>
                         <span asp-validation-for="PeakHorsepowerAtRPM" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Torque" class="form-label">Torque</label>
-                        <input asp-for="Torque" class="form-control text-white fw-bold" placeholder="Torque">
+                        <input asp-for="Torque" class="form-control text-white fw-bold" placeholder="Torque" required>
                         <span asp-validation-for="Torque" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="PeakTorqueAtRPM" class="form-label">Peak Torque At RPM</label>
-                        <input asp-for="PeakTorqueAtRPM" class="form-control text-white fw-bold" placeholder="Peak Torque At RPM">
+                        <input asp-for="PeakTorqueAtRPM" class="form-control text-white fw-bold" placeholder="Peak Torque At RPM" required>
                         <span asp-validation-for="PeakTorqueAtRPM" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
-                        <label asp-for="AccelerationTo100" class="form-label">Acceleration (0-100)</label>
-                        <input asp-for="AccelerationTo100" class="form-control text-white fw-bold" placeholder="Acceleration">
+                        <label asp-for="AccelerationTo100" class="form-label">Acceleration(0-100)</label>
+                        <input asp-for="AccelerationTo100" class="form-control text-white fw-bold" placeholder="Acceleration" required>
                         <span asp-validation-for="AccelerationTo100" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="TopSpeed" class="form-label">Top Speed</label>
-                        <input asp-for="TopSpeed" class="form-control text-white fw-bold" placeholder="Top Speed">
+                        <input asp-for="TopSpeed" class="form-control text-white fw-bold" placeholder="Top Speed" required>
                         <span asp-validation-for="TopSpeed" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Mileage" class="form-label">Mileage</label>
-                        <input asp-for="Mileage" class="form-control text-white fw-bold" placeholder="Mileage">
+                        <input asp-for="Mileage" class="form-control text-white fw-bold" placeholder="Mileage" required>
                         <span asp-validation-for="Mileage" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="ImageURL" class="form-label">Image URL</label>
-                        <input asp-for="ImageURL" class="form-control text-white fw-bold" placeholder="Image URL">
+                        <input asp-for="ImageURL" class="form-control text-white fw-bold" placeholder="Image URL" required>
                         <span asp-validation-for="ImageURL" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="ConsumptionPer100Km" class="form-label">Consumption Per 100 Km</label>
-                        <input asp-for="ConsumptionPer100Km" class="form-control text-white fw-bold" placeholder="Consumption Per 100 Km">
+                        <input asp-for="ConsumptionPer100Km" class="form-control text-white fw-bold" placeholder="Consumption Per 100 Km" required>
                         <span asp-validation-for="ConsumptionPer100Km" class="text-danger small"></span>
                     </div>
                     <div class="text-center">
-                        <input class="btn btn-primary mt-3" type="submit" value="Save" />
+                        <input class="btn btn-primary mt-3" type="submit" value="Save" style="margin:1rem;font-weight: 800; font-size: 20px;padding: 10px 20px;background:#1f6bc0;color:white;border: 3px solid rgba(0, 0, 0, .125);" />
                     </div>
                 </form>
             </div>

@@ -76,17 +76,11 @@ namespace CarRental.Controllers
                 ModelState.AddModelError(nameof(EngineStructureType), "Invalid engine structure Type.");
             }
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(formModel);
-            //}
 
             try
             {
                 string carId =
                     await carService.CreateAndReturnId(formModel);
-
-                TempData["SuccessMessage"] = "Car was added successfully!";
                 return RedirectToAction("Detail", "Car", new { id = carId });
             }
             catch (Exception)
@@ -107,7 +101,6 @@ namespace CarRental.Controllers
 
             if (!carExists)
             {
-                TempData["ErrorMessage"] = "Car with the provided id does not exist!";
 
                 return RedirectToAction("All", "Car");
             }
@@ -136,8 +129,6 @@ namespace CarRental.Controllers
 
                 if (!carExists)
                 {
-                    TempData["ErrorMessage"] = "Car with the provided id does not exist!";
-
                     return RedirectToAction("All", "Car");
                 }
 
@@ -168,8 +159,6 @@ namespace CarRental.Controllers
 
                 if (!carExists)
                 {
-                    TempData["ErrorMessage"] = "Car with the provided id does not exist!";
-
                     return RedirectToAction("All", "Car");
                 }
 
@@ -196,15 +185,11 @@ namespace CarRental.Controllers
 
                 if (!carExists)
                 {
-                    TempData["ErrorMessage"] = "Car with the provided id does not exist!";
 
                     return RedirectToAction("All", "Car");
                 }
 
                 await carService.DeleteCarById(Guid.Parse(id));
-
-                TempData["WarningMessage"] = "The car was successfully deleted!";
-
                 return RedirectToAction("All", "Car");
             }
             catch (Exception)
@@ -223,8 +208,6 @@ namespace CarRental.Controllers
 
                 if (!carExists)
                 {
-                    TempData["ErrorMessage"] = "Car with the provided id does not exist!";
-
                     return RedirectToAction("Detail", "Car");
                 }
 
@@ -248,8 +231,6 @@ namespace CarRental.Controllers
 
                 if (!carExist)
                 {
-                    TempData["ErrorMessage"] = "Car with provided id does not exist! Please try again!";
-
                     return RedirectToAction("Detail", "Car", new { viewModel.CarId });
                 }
 
@@ -257,8 +238,6 @@ namespace CarRental.Controllers
 
                 if (isCarRented)
                 {
-                    TempData["ErrorMessage"] = "Selected car is already rented by another user! Please select another car.";
-
                     return RedirectToAction("All", "Car");
                 }
 
@@ -298,16 +277,12 @@ namespace CarRental.Controllers
 
                 if (!carExist)
                 {
-                    TempData["ErrorMessage"] = "Car with provided id does not exist! Please try again!";
-
                     return RedirectToAction("All", "Car");
                 }
 
                 bool isCarRented = await carService.IsRentedById(Guid.Parse(id));
                 if (!isCarRented)
                 {
-                    TempData["ErrorMessage"] = "Selected car is not rented! Please select one of your cars if you wish to leave them.";
-
                     return RedirectToAction("Mine", "Car");
                 }
 
@@ -315,15 +290,11 @@ namespace CarRental.Controllers
 
                 if (!isCurrUserRenterOfTheCar)
                 {
-                    TempData["ErrorMessage"] =
-                        "You must be the renter of the car in order to leave it! Please try again with one of your rented cars if you wish to leave it.";
-
                     return RedirectToAction("Mine", "Car");
                 }
 
                 await carService.LeaveCarById(Guid.Parse(id));
 
-                TempData["InformationMessage"] = "You left your car successfully!";
             }
             catch (Exception)
             {
@@ -360,9 +331,7 @@ namespace CarRental.Controllers
 
         private IActionResult GeneralError()
         {
-            TempData["ErrorMessage"] = "Unexpected error occurred!";
-
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("All", "Car");
         }
 
         private bool IsValidEnumValue<TEnum>(TEnum value)

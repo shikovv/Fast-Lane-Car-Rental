@@ -17,15 +17,15 @@
             <div style="display: flex; justify-content: center;">
             @if (this.User.Identity.IsAuthenticated)
             {
-                <a asp-area="" asp-controller="Car" asp-action="Detail" asp-route-id="@Model.Id" class="btn btn-success" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px;">Details</a>
+                    <a asp-area="" asp-controller="Car" asp-action="Detail" asp-route-id="@Model.Id" class="btn btn-success" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px;font-weight:600;">Details</a>
             }
 
 
            @if (this.User.IsAdmin()) 
             {
-                    <a asp-area="" asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px;">Edit</a>
+                    <a asp-area="" asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px; font-weight:600;">Edit</a>
                     <form method="post">
-                    <button type="submit" asp-area="" asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px;">
+                        <button type="submit" asp-area="" asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; margin:5px;font-weight:600;">
                         Delete
                     </button>
                     </form>

@@ -19,7 +19,7 @@
 
 @if (!Model.Any())
 {
-	<h2 class="text-center">You don't have any cars yet!</h2>
+	<h1 class="text-center" style="font-weight:800";>You don't have any cars yet!</h1>
 }
 else
 {
@@ -33,4 +33,8 @@ else
 
 <link href="~/css/AllCars.css" rel="stylesheet" />
 </body>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
 

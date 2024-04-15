@@ -9,6 +9,11 @@
     <title>All Comments</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            background: linear-gradient(#1f6bc0, #0b1c3f);
+            color: #fff;
+        }
+
         .card-img-top {
             object-fit: cover;
             height: 312px;
@@ -26,16 +31,41 @@
             padding: 0;
             margin: 0;
         }
+
+        .comment-container {
+            color: #fff;
+        }
+
+        .fa-star {
+            color: #1f9cff;
+            text-shadow: 0 2px 5px rgba(0,0,0,.5);
+            content: '\f005';
+            font-family: fontAwesome;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(#141e30, #243b55);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #03e9f4;
+            border-radius: 6px;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center">All Comments</h2>
+                <h1 class="text-center" style="font-weight:800; margin-bottom:3rem;">What they say about us?</h1>
                 @if (!Model.Comments.Any())
                 {
-                    <h3 class="text-center">No comments found.</h3>
+                    <h1 class="text-center" style="font-weight:800">No reviews found.</h1>
                 }
                 else
                 {
@@ -46,29 +76,29 @@
                                     <ul>
                                         @foreach (var comment in Model.Comments)
                                         {
-                                            <li style="border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+                                            <li style="border-bottom: 3px solid #ccc; padding-bottom: 1.5rem;padding-top:1.5rem;">
                                                 <div class="comment-container">
                                                     <div class="right-content">
-                                                        <h4>@comment.Title<span style="font-size:12px; color:darkgrey;margin-left:30px;">@comment.CreatedOn</span></h4>
-                                                        <p>@comment.Description</p>
+                                                        <h4 style="font-weight:800;font-size:28px;">@comment.Title<span style="font-size:12px; color:darkgrey;margin-left:30px;">@comment.CreatedOn</span></h4>
+                                                        <p style="font-size:18px;font-weight:500;">@comment.Description</p>
                                                         <div class="rating">
                                                             @for (int i = 0; i < comment.StarsRating; i++)
                                                             {
-                                                                <i class="fa-solid fa-star" style="color: yellow"></i>
+                                                                <i class="fa-solid fa-star"></i>
                                                             }
                                                         </div>
-                                                        <h5 style="text-align:right">-@comment.CreaterFullName</h5>
+                                                        <h5 style="text-align:right;font-weight:800;">-@comment.CreaterFullName</h5>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     @if (User.GetId().ToUpper() == comment.CreaterId.ToUpper())
                                                     {
-                                                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-warning btn-sm-custom" style="border: 3px solid rgba(0, 0, 0, .125); color: #fff; background-color: #0d6efd; margin-right: 5px; display: inline-block;">Edit</a>
+                                                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-warning btn-sm-custom" style="border: 3px solid rgba(0, 0, 0, .125); color: #fff; background-color: #0d6efd; margin-right: 5px; display: inline-block;font-weight:600;">Edit</a>
                                                     }
                                                     @if (User.IsAdmin() || User.GetId().ToUpper() == comment.CreaterId.ToUpper())
                                                     {
                                                         <form method="post" style="display: inline-block;">
-                                                            <button type="submit" asp-area="" asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-danger" style="border: 3px solid rgba(0, 0, 0, .125); color: #fff; background-color: #0d6efd; margin-right: 5px; display: inline-block;">Delete</button>
+                                                            <button type="submit" asp-area="" asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-danger" style="border: 3px solid rgba(0, 0, 0, .125); color: #fff; background-color: #0d6efd; margin-right: 5px; display: inline-block;font-weight:600;">Delete</button>
                                                         </form>
                                                     }
                                                 </div>
@@ -85,3 +115,7 @@
     </div>
 </body>
 </html>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

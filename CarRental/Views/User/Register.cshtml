@@ -4,13 +4,15 @@
     ViewData["Title"] = "Register";
 }​
 <body style="overflow-y: auto;">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>​
+<div class="validation-summary-errors">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
     <div class="register-box">
                <h2>Register</h2>
               <form asp-area="" asp-controller="User" method="post">
             <div class="user-box">​
                 <label asp-for="@Model.UserName">Username</label>​
-                <input class="form-control " autocomplete="username" aria-required="true" asp-for="@Model.UserName"/>​
+                <input class="form-control " style="margin-bottom:auto;"autocomplete="username" aria-required="true" asp-for="@Model.UserName"/>​
                 <span asp-validation-for="@Model.UserName" class="text-danger"></span>​
             </div>
             <label>
@@ -18,17 +20,17 @@
             </label>
             <div class="user-box">​
                 <label asp-for="@Model.FirstName">Firstname</label>​
-                <input class="form-control " autocomplete="firstname" aria-required="true" asp-for="@Model.FirstName"/>​
+                <input class="form-control " style="margin-bottom:auto;"autocomplete="firstname" aria-required="true" asp-for="@Model.FirstName"/>​
                 <span asp-validation-for="@Model.FirstName" class="text-danger"></span>​
             </div>​
             <div class="user-box">​
                 <label asp-for="@Model.Surname">Surname</label>​
-                <input class="form-control " autocomplete="surname" aria-required="true" asp-for="@Model.Surname"/>​
+                <input class="form-control" style="margin-bottom:auto;" autocomplete="surname" aria-required="true" asp-for="@Model.Surname"/>​
                 <span asp-validation-for="@Model.Surname" class="text-danger"></span>​
             </div>​
             <div class="user-box">​
                 <label asp-for="@Model.EmailAddress">Email</label>​
-                <input class="form-control " autocomplete="username" aria-required="true" asp-for="@Model.EmailAddress" />​
+                <input class="form-control " style="margin-bottom:auto;"autocomplete="username" aria-required="true" asp-for="@Model.EmailAddress" />​
                 <span asp-validation-for="@Model.EmailAddress" class="text-danger"></span>​
                 </div>
                 <label>
@@ -36,12 +38,12 @@
                 </label>
                 <div class="user-box">​
                 <label asp-for="@Model.Password">Password</label>​
-                <input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.Password" />​
+                <input class="form-control" style="margin-bottom:auto;"type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.Password" />​
                 <span asp-validation-for="@Model.Password" class="text-danger"></span>​
             </div>​
             <div class="user-box">​
                 <label asp-for="@Model.ConfirmPassword">Confirm Password</label>​
-                <input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.ConfirmPassword" />​
+                <input class="form-control" style="margin-bottom:auto;"type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.ConfirmPassword" />​
                 <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>​
             </div>​
                 <button class="register-submit-btn" type="submit">
@@ -55,3 +57,6 @@
     </div>
 <link href="~/css/register.css" rel="stylesheet" />
 </body>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

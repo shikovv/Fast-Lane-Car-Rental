@@ -44,8 +44,6 @@ namespace CarRental.Controllers
             {
                     await commentService.CreateAndReturnId(formModel, Guid.Parse(this.User.GetId())!);
 
-                TempData["SuccessMessage"] = "Comment was added successfully!";
-
                 return RedirectToAction("All", "Comment");
             }
             catch (Exception)
@@ -67,7 +65,6 @@ namespace CarRental.Controllers
 
                 if (!commentExists)
                 {
-                    TempData["ErrorMessage"] = "Comment with the provided id does not exist!";
 
                     return RedirectToAction("All", "Comment");
                 }
@@ -77,9 +74,6 @@ namespace CarRental.Controllers
 
                 if (!isCurrentUserCreatorOfTheComment && !isAdmin)
                 {
-                    TempData["ErrorMessage"] =
-                        "You must be the creator of the comment in order to edit it!";
-
                     return RedirectToAction("All", "Comment");
                 }
 
@@ -109,8 +103,6 @@ namespace CarRental.Controllers
 
                 if (!commentExists)
                 {
-                    TempData["ErrorMessage"] = "Comment with the provided id does not exist!";
-
                     return RedirectToAction("All", "Comment");
                 }
 
@@ -119,21 +111,14 @@ namespace CarRental.Controllers
 
                 if (!isCurrentUserCreatorOfTheComment && !isAdmin)
                 {
-                    TempData["ErrorMessage"] =
-                        "You must be the creator of the comment in order to edit it!";
-
                     return RedirectToAction("All", "Comment");
                 }
 
 
                 await commentService.EditCommentByIdAndFormModel(Guid.Parse(id), commentModel);
-
-                this.TempData["InformationMessage"] = "Comment was edited successfully";
             }
             catch (Exception)
             {
-                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to edit the comment!");
-
                 return View(commentModel);
             }
 
@@ -150,15 +135,10 @@ namespace CarRental.Controllers
 
                 if (!commentExists)
                 {
-                    TempData["ErrorMessage"] = "Comment with the provided id does not exist!";
-
                     return RedirectToAction("All", "Comment");
                 }
 
                 await this.commentService.DeleteCommentById(Guid.Parse(id));
-
-                TempData["WarningMessage"] = "The selected comment was successfully deleted from the Database!";
-
                 return RedirectToAction("All", "Comment");
             }
             catch (Exception)
@@ -167,13 +147,8 @@ namespace CarRental.Controllers
             }
         }
 
-
-
-
         private IActionResult GeneralError()
         {
-            TempData["ErrorMessage"] = "Unexpected error occurred!";
-
             return RedirectToAction("All", "Comment");
         }
     }

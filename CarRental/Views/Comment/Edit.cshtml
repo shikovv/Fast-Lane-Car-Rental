@@ -1,9 +1,11 @@
 ﻿@using CarRental.Models.Comment
 @model CommentFormModel
-<h2 style="margin-left:20px;">Edit a review</h2>
-<partial name="_CommentFormPartial" model="@Model" />
+<body style="background: linear-gradient(#1f6bc0, #0b1c3f);color:white;">
+	<h1 style="font-weight:800;color:white;margin-left:20px;">Edit your review</h1>
+	<partial name="_CommentFormPartial" model="@Model" />
+	</body>
+	@section Scripts
+ {
+		<partial name="_ValidationScriptsPartial" />
+	}
 
-@section Scripts
-{
-	<partial name="_ValidationScriptsPartial" />
-}

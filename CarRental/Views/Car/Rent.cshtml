@@ -5,12 +5,45 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Rent Car</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(#1f6bc0, #0b1c3f);
+            color: #fff;
+        }
+
+        .form-group label {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .form-control {
+            color: #000 !important;
+            font-weight: 600;
+        }
+
+
+        .btn.btn-primary {
+            background: #1f6bc0;
+            border-color: #1f6bc0;
+            font-weight: 800;
+        }
+
+            .btn.btn-primary:hover {
+                background: #0d6efd;
+                border-color: #0d6efd;
+            }
+
+        .alert.alert-danger,
+        .alert.alert-success {
+            color: #fff;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Rent Car</h2>
+        <h1 style="font-weight:800;padding-bottom:1.5rem;">Rent a car</h1>
         @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
         {
             <div class="alert alert-danger" role="alert">
@@ -35,27 +68,20 @@
                 <input type="text" class="form-control" id="address" name="Address" required>
             </div>
             <input type="hidden" name="CarId" value="@Model.CarId">
-            <button type="submit" class="btn btn-primary">Rent Car</button>
+            <button type="submit" class="btn btn-primary" style="border: 3px solid rgba(0, 0, 0, .125);color: #fff;background-color: #0d6efd; font-weight:800;">Rent</button>
         </form>
 
-        @if (TempData["SuccessMessage"] != null)
+
+        @if (TempData["Shortage"] != null)
         {
-            <div class="alert alert-success mt-3" role="alert">
-                @TempData["SuccessMessage"]
-            </div>
-        }
-        else if (TempData["Shortage"] != null)
-        {
-            <div class="alert alert-danger mt-3" role="alert">
+            <div class="alert alert-danger mt-3" style="text-align:center; background-color:#11345b; color:white;border:3px solid #03e9f4;margin-bottom:30px;font-size:20px;" role="alert">
                 You don't have enough deposit to rent the car. The shortage is: <b>@TempData["Shortage"]</b> BGN
-            </div>
-        }
-        else if (TempData["Change"] != null)
-        {
-            <div class="alert alert-success mt-3" role="alert">
-                You have successfully rented the car. Your change is: <b>@TempData["Change"]</b> BGN
             </div>
         }
     </div>
 </body>
 </html>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

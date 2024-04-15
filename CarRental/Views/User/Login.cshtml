@@ -10,12 +10,12 @@
   <h2>Login</h2>
   <form asp-area="" asp-controller="User" method="post">
     <div class="user-box">
-                    <input asp-for="@Model.UserName" class="form-control" autocomplete="username" aria-required="true" />​
+                    <input asp-for="@Model.UserName" class="form-control"style="margin-bottom:10px;" autocomplete="username" aria-required="true" />​
        <label asp-for="@Model.UserName" class="form-label"></label>​
                     <span asp-validation-for="UserName" class="text-danger"></span>​
     </div>
     <div class="user-box">
-        <input asp-for="@Model.Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" />​
+        <input asp-for="@Model.Password" type="password" class="form-control"style="margin-bottom:auto;margin-top:20px;" autocomplete="current-password" aria-required="true" />​
       <label asp-for="@Model.Password" class="form-label"></label>​
         <span asp-validation-for="Password" class="text-danger"></span>​
     </div>
@@ -30,3 +30,6 @@
 </div>
 <link href="~/css/login.css" rel="stylesheet" />
 </body>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
