@@ -46,6 +46,9 @@
                 <input class="form-control" style="margin-bottom:auto;"type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.ConfirmPassword" />​
                 <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>​
             </div>​
+            <div>
+            <a href="/User/Login" style="color: white; font-weight: 700; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Already have an account?</a>
+        </div>
                 <button class="register-submit-btn" type="submit">
       <span></span>
       <span></span>

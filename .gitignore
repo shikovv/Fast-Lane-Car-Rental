@@ -406,4 +406,3 @@ CarRental/obj/CarRental.csproj.nuget.g.props
 CarRental/obj/CarRental.csproj.nuget.dgspec.json
 *.cache
 *.cache
-CarRental/Views/Car/All.cshtml

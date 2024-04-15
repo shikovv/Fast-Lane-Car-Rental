@@ -9,13 +9,27 @@
     <div class="start-box">
         <h2>Welcome!</h2>
         <p>Welcome to Fast Lane Car Rental, your ultimate destination for hassle-free car rentals, where convenience meets quality service.</p>
-        <button class="register-submit-btn" onclick="window.location.href = '/Car/All';">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Get Started
-        </button>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <button class="register-submit-btn" onclick="window.location.href = '/Car/All';">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Get Started
+            </button>
+        }
+        else
+        {
+            <button class="register-submit-btn" onclick="window.location.href = '/User/Register';">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Get Started
+            </button>
+        }
     </div>
 </body>
-    </html>
+</html>
