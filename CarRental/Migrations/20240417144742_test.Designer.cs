@@ -4,6 +4,7 @@ using CarRental.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240417144742_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +104,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("8a5edc49-7490-493f-2f01-08db8a416485"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b2cac2ff-dfc4-4b17-a67e-46533673eda8",
+                            ConcurrencyStamp = "4bdf56c8-a7ba-4c0c-b132-037df0dc7cfc",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stefan",
@@ -110,10 +112,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAENY/6VmQXsD6m9+n1hQooLL4AX8GKLN9Dh7cNWaX70E5NCZc9lT7/IXKy0jTeSwfOw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEATbSpT6dXK0RU8gXChFGndgiaZNYL1kUBfARiAKxPA7tN7PfyUMwflKddRqeet97g==",
                             PhoneNumber = "0988360889",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eeead1f8-954a-42f9-87d9-2d86cc89c992",
+                            SecurityStamp = "3ed4f738-4998-4665-85d7-d92a61d490a2",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -121,7 +123,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f06d4765-779a-4766-eb64-08db8a42133c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "317cc56d-72c9-4c91-8ed0-2941d3a30b1c",
+                            ConcurrencyStamp = "49e06c3a-32a7-43e6-b777-2eb22198c0da",
                             Email = "ivan.ivanov@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -129,10 +131,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "IVAN.IVANOV@GMAIL.COM",
                             NormalizedUserName = "IVAN IVANOV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHeoJekJmAU1k5NC/f0PX/6G9xzj4lo7tUK/yDtjesDfX1fZrGSHB/L0aPVy/QDUtw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPHv123muFvz4EPs6CvnqA8sA9NdUmEyXQZZO71iLbH0sDcxIRs6NtfhG6WOX/BVlA==",
                             PhoneNumber = "0899999999",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4f8a9134-3d76-40a5-8f11-a0a6adf3f321",
+                            SecurityStamp = "f3d75306-8806-46d5-b5ab-134fa94ca8c5",
                             TwoFactorEnabled = false,
                             UserName = "Ivan Ivanov"
                         },
@@ -140,7 +142,7 @@ namespace CarRental.Migrations
                         {
                             Id = new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "87efbe39-a884-4da7-8def-7b24d73b02ff",
+                            ConcurrencyStamp = "b68450c4-137b-46e5-a2be-6ea81ca782b8",
                             Email = "pesho_petrov@yahoo.com",
                             EmailConfirmed = false,
                             FirstName = "Pesho",
@@ -148,10 +150,10 @@ namespace CarRental.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PESHO_PETROV@YAHOO.COM",
                             NormalizedUserName = "PESHO_PETROV",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGfsLSyZPAzke77+fvoJ4dfZJJuAXJmlLb1SvKgqbF/GN9PlKbxEdDoxk9vrD78zWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGvKxS5pfi2VuANw1gsLzWVC27sRf0AFNxWIguCDFdDKAivhWCaVdx3+IfMRmmC41g==",
                             PhoneNumber = "0877777777",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1ee57999-7339-42b7-a760-39623319b6cf",
+                            SecurityStamp = "9cafe749-5204-4520-a4c0-b95e59d1b939",
                             TwoFactorEnabled = false,
                             UserName = "pesho_petrov"
                         });
@@ -277,28 +279,28 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("1201c5ee-8aa7-4400-9009-7bfc91fa4817"),
-                            AccelerationTo100 = 4.7000000000000002,
+                            AccelerationTo100 = 8.6999999999999993,
                             BodyType = 0,
-                            ConsumptionPer100Km = 12.699999999999999,
+                            ConsumptionPer100Km = 8.6999999999999993,
                             CylindersNumber = 4,
-                            Displacement = 2500,
+                            Displacement = 2000,
                             EngineAspirationType = 0,
                             EngineFuelType = 0,
                             EngineStructureType = 0,
-                            Horsepower = 235,
-                            ImageURL = "https://autobild.bg/wp-content/uploads/2021/08/Mercedes-190-E-2.5-16-Evo-II-7.jpg",
+                            Horsepower = 122,
+                            ImageURL = "https://i.pinimg.com/736x/bd/f1/67/bdf167075cbba99b9eeed9393ba24d65.jpg",
                             IsActive = false,
                             Make = "Mercedes",
-                            Mileage = 41000,
-                            Model = "190E EVO 2",
-                            PeakHorsepowerAtRPM = 7200,
-                            PeakTorqueAtRPM = 5000,
-                            PricePerDay = 2239.9899999999998,
-                            SafetyRating = 9.3000000000000007,
-                            Seats = 4,
-                            TopSpeed = 298,
-                            Torque = 245,
-                            TransmissionType = 0,
+                            Mileage = 460000,
+                            Model = "190E",
+                            PeakHorsepowerAtRPM = 5300,
+                            PeakTorqueAtRPM = 3500,
+                            PricePerDay = 239.0,
+                            SafetyRating = 9.0999999999999996,
+                            Seats = 5,
+                            TopSpeed = 230,
+                            Torque = 178,
+                            TransmissionType = 1,
                             YearOfProduction = 1991
                         },
                         new
@@ -327,141 +329,6 @@ namespace CarRental.Migrations
                             Torque = 320,
                             TransmissionType = 1,
                             YearOfProduction = 2014
-                        },
-                        new
-                        {
-                            Id = new Guid("972f5bfe-0147-48ba-9fa3-a869604e8eb7"),
-                            AccelerationTo100 = 6.7999999999999998,
-                            BodyType = 3,
-                            ConsumptionPer100Km = 7.5999999999999996,
-                            CylindersNumber = 4,
-                            Displacement = 2000,
-                            EngineAspirationType = 0,
-                            EngineFuelType = 0,
-                            EngineStructureType = 0,
-                            Horsepower = 150,
-                            ImageURL = "https://i0.shbdn.com/photos/52/19/80/x5_1163521980bds.jpg",
-                            IsActive = false,
-                            Make = "Renault",
-                            Mileage = 340000,
-                            Model = "Megane Coach",
-                            PeakHorsepowerAtRPM = 6200,
-                            PeakTorqueAtRPM = 4200,
-                            PricePerDay = 199.99000000000001,
-                            SafetyRating = 7.7000000000000002,
-                            Seats = 4,
-                            TopSpeed = 243,
-                            Torque = 190,
-                            TransmissionType = 0,
-                            YearOfProduction = 1999
-                        },
-                        new
-                        {
-                            Id = new Guid("106b584f-2fc0-45ef-985f-ce520e719b3b"),
-                            AccelerationTo100 = 5.5,
-                            BodyType = 11,
-                            ConsumptionPer100Km = 21.600000000000001,
-                            CylindersNumber = 8,
-                            Displacement = 5500,
-                            EngineAspirationType = 2,
-                            EngineFuelType = 0,
-                            EngineStructureType = 1,
-                            Horsepower = 507,
-                            ImageURL = "https://www.historics.co.uk/media/1649547/g-wagon-1.jpg?anchor=center&mode=crop&width=1000",
-                            IsActive = false,
-                            Make = "Mercedes",
-                            Mileage = 210000,
-                            Model = "G55 AMG",
-                            PeakHorsepowerAtRPM = 6100,
-                            PeakTorqueAtRPM = 3100,
-                            PricePerDay = 499.99000000000001,
-                            SafetyRating = 9.6999999999999993,
-                            Seats = 5,
-                            TopSpeed = 290,
-                            Torque = 700,
-                            TransmissionType = 1,
-                            YearOfProduction = 2009
-                        },
-                        new
-                        {
-                            Id = new Guid("2ef90e6c-4356-465d-9389-9f6017b808c3"),
-                            AccelerationTo100 = 10.9,
-                            BodyType = 2,
-                            ConsumptionPer100Km = 3.6000000000000001,
-                            CylindersNumber = 4,
-                            Displacement = 1800,
-                            EngineAspirationType = 0,
-                            EngineFuelType = 4,
-                            EngineStructureType = 0,
-                            Horsepower = 122,
-                            ImageURL = "https://www.auto-data.net/images/f15/Toyota-Corolla-XII_1.jpg",
-                            IsActive = false,
-                            Make = "Toyota",
-                            Mileage = 76000,
-                            Model = "Corolla",
-                            PeakHorsepowerAtRPM = 5200,
-                            PeakTorqueAtRPM = 3600,
-                            PricePerDay = 79.989999999999995,
-                            SafetyRating = 6.7000000000000002,
-                            Seats = 5,
-                            TopSpeed = 180,
-                            Torque = 142,
-                            TransmissionType = 1,
-                            YearOfProduction = 2019
-                        },
-                        new
-                        {
-                            Id = new Guid("2c4f96ad-c259-4494-aec1-d16085794319"),
-                            AccelerationTo100 = 4.9000000000000004,
-                            BodyType = 0,
-                            ConsumptionPer100Km = 13.4,
-                            CylindersNumber = 8,
-                            Displacement = 6000,
-                            EngineAspirationType = 0,
-                            EngineFuelType = 0,
-                            EngineStructureType = 1,
-                            Horsepower = 381,
-                            ImageURL = "https://i0.wp.com/www.klasikotom.com/wp-content/uploads/2019/10/W124-E60-AMG-Mercedes-Benz-Tarihcesi-motor-teknik-ozellikleri-nedir-nasil-nasildir-kps.jpg?fit=639%2C369&ssl=1",
-                            IsActive = false,
-                            Make = "Mercedes",
-                            Mileage = 33000,
-                            Model = "E60 AMG",
-                            PeakHorsepowerAtRPM = 5500,
-                            PeakTorqueAtRPM = 3750,
-                            PricePerDay = 1089.99,
-                            SafetyRating = 9.3000000000000007,
-                            Seats = 4,
-                            TopSpeed = 324,
-                            Torque = 580,
-                            TransmissionType = 1,
-                            YearOfProduction = 1994
-                        },
-                        new
-                        {
-                            Id = new Guid("4fd8c3e0-5b21-44e1-8d0c-b6cae13ad9e2"),
-                            AccelerationTo100 = 5.9000000000000004,
-                            BodyType = 0,
-                            ConsumptionPer100Km = 15.4,
-                            CylindersNumber = 12,
-                            Displacement = 6000,
-                            EngineAspirationType = 0,
-                            EngineFuelType = 0,
-                            EngineStructureType = 1,
-                            Horsepower = 408,
-                            ImageURL = "https://business-car-rent.net/wp-content/uploads/2021/03/mercedes-benz-w140-s600-kaban-brabus-mersedes-dlya-kino-na-semki-bez-voditelya-na-prokat-brabus-mers-kiev-10-1.jpg",
-                            IsActive = false,
-                            Make = "Mercedes",
-                            Mileage = 59000,
-                            Model = "S600 SEL",
-                            PeakHorsepowerAtRPM = 5200,
-                            PeakTorqueAtRPM = 3800,
-                            PricePerDay = 889.99000000000001,
-                            SafetyRating = 9.6999999999999993,
-                            Seats = 5,
-                            TopSpeed = 308,
-                            Torque = 580,
-                            TransmissionType = 1,
-                            YearOfProduction = 1998
                         });
                 });
 
@@ -499,7 +366,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("df0bd291-45c5-4ac0-a927-27b27ddbd821"),
-                            CreatedOn = new DateTime(2024, 4, 17, 19, 56, 49, 351, DateTimeKind.Local).AddTicks(5137),
+                            CreatedOn = new DateTime(2024, 4, 17, 17, 47, 41, 499, DateTimeKind.Local).AddTicks(188),
                             CreatorId = new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"),
                             Description = "Exceptional service from Fast Lane Car Rental! The rental process was seamless, and the car exceeded my expectations. Will definitely be using their services again!",
                             StarsRating = 5,
@@ -508,7 +375,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("9bdc6a38-e9f4-4cdf-8b9e-b329e0f0233c"),
-                            CreatedOn = new DateTime(2024, 4, 17, 19, 56, 49, 351, DateTimeKind.Local).AddTicks(5178),
+                            CreatedOn = new DateTime(2024, 4, 17, 17, 47, 41, 499, DateTimeKind.Local).AddTicks(230),
                             CreatorId = new Guid("f06d4765-779a-4766-eb64-08db8a42133c"),
                             Description = "Fast Lane Car Rental made my trip an absolute breeze! Their extensive selection of vehicles ensured I found the perfect ride for my adventure. The seamless rental process and friendly staff made the experience top-notch. Highly recommend!",
                             StarsRating = 4,
@@ -517,7 +384,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("6db74b16-8cc7-4709-9fce-9e8a30939efc"),
-                            CreatedOn = new DateTime(2024, 4, 17, 19, 56, 49, 351, DateTimeKind.Local).AddTicks(5188),
+                            CreatedOn = new DateTime(2024, 4, 17, 17, 47, 41, 499, DateTimeKind.Local).AddTicks(237),
                             CreatorId = new Guid("8a5edc49-7490-493f-2f01-08db8a416485"),
                             Description = "My experience with Fast Lane Car Rental exceeded all expectations. From booking to drop-off, everything was flawless. The quality of their vehicles and the professionalism of their team truly set them apart. Will definitely be returning for my future rental needs!",
                             StarsRating = 4,
@@ -599,7 +466,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"),
-                            ConcurrencyStamp = "ee6e858a-cfdc-48e0-9448-083a4bde31bc",
+                            ConcurrencyStamp = "b5e790d0-b0bb-4707-b6c6-26d9eef31c5b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
