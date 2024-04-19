@@ -267,16 +267,16 @@ namespace CarRental.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"), "2ba343ad-8dae-4674-b554-e8ad474e728d", "Admin", "ADMIN" });
+                values: new object[] { new Guid("eba1e76b-c6a4-4d55-96a1-af76b359c115"), "c3a8d0d1-6a86-4528-9707-bef481b3b415", "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("8a5edc49-7490-493f-2f01-08db8a416485"), 0, "d94e8384-f0d0-4095-8ecc-1cefb1343758", "admin@gmail.com", false, "Stefan", "Shikov", false, null, "ADMIN@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEDmS6ijaJ0OaejMNrGZ1qqDHfQy4Wm9rJu0349Y2IxHaJxXssjkFSOKqK7xU6FsNLw==", "0988360889", false, "f5122e46-9a3e-4a2d-8bfd-4313a031f888", false, "admin" },
-                    { new Guid("f06d4765-779a-4766-eb64-08db8a42133c"), 0, "e8f0aaed-ab68-4b96-a931-6096a05460dd", "ivan.ivanov@gmail.com", false, "Ivan", "Ivanov", false, null, "IVAN.IVANOV@GMAIL.COM", "IVAN IVANOV", "AQAAAAEAACcQAAAAEPpDTwdZlV+tBiy07cjSiQu1IPgyB/1Pt6F/Qq9Hx56W6WON4luCKenpcFYD0JKDWA==", "0899999999", false, "aeff0875-5cee-4051-8a9d-534b2b286c84", false, "Ivan Ivanov" },
-                    { new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), 0, "2d320a91-4be0-446a-8d1f-3902ecd509f8", "pesho_petrov@yahoo.com", false, "pesho", "petrov", false, null, "PESHO_PETROV@YAHOO.COM", "PESHO_PETROV", "AQAAAAEAACcQAAAAEOCh4qvgUQj2ga58pHcoF5/4M7BQ66Ahc0ubN/xq1ObYsBKNEI/IF5HOHPEt4Zyctg==", "0877777777", false, "975f6b89-3188-4264-a904-c1e44a1a8205", false, "pesho_petrov" }
+                    { new Guid("8a5edc49-7490-493f-2f01-08db8a416485"), 0, "613c7531-ee75-499d-b423-262167c3cfa2", "admin@gmail.com", false, "Stefan", "Shikov", false, null, "ADMIN@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEFRAciDdpAFbWFTJHxdSWDSd/gpaFseAOxrt9KShd2Y74f+M4Ykg/iVTYFfKLiAWuQ==", "0988360889", false, "ae243ac7-0b0f-4537-92bf-b70940eb4a21", false, "admin" },
+                    { new Guid("f06d4765-779a-4766-eb64-08db8a42133c"), 0, "3aeba5bf-561a-49fa-955d-3851226abb16", "ivan.ivanov@gmail.com", false, "Ivan", "Ivanov", false, null, "IVAN.IVANOV@GMAIL.COM", "IVAN IVANOV", "AQAAAAEAACcQAAAAEAI1JmZZU/GD+JY08TLISB5IYwNP3+3AqxgOpNf7Hq3cklBrsyWWTRIcXhTnCJmn5w==", "0899999999", false, "df7f4d45-a33d-4f8e-a7cc-87ddb18e8736", false, "Ivan Ivanov" },
+                    { new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), 0, "6d09f2ea-c755-4c06-ade3-70793a5db82a", "pesho_petrov@yahoo.com", false, "Pesho", "Petrov", false, null, "PESHO_PETROV@YAHOO.COM", "PESHO_PETROV", "AQAAAAEAACcQAAAAEAOgqf0uAdzNoEemMhcrVnQi9Wy5xtvdC4wpfSsaoFMtguPWu3nXeB2CI2Bp85a3vA==", "0877777777", false, "0b8127b1-83f6-4627-90f8-5b96d42992bb", false, "pesho_petrov" }
                 });
 
             migrationBuilder.InsertData(
@@ -284,8 +284,13 @@ namespace CarRental.Migrations
                 columns: new[] { "Id", "AccelerationTo100", "BodyType", "ConsumptionPer100Km", "CylindersNumber", "Displacement", "EngineAspirationType", "EngineFuelType", "EngineStructureType", "Horsepower", "ImageURL", "Make", "Mileage", "Model", "PeakHorsepowerAtRPM", "PeakTorqueAtRPM", "PricePerDay", "RenterId", "SafetyRating", "Seats", "TopSpeed", "Torque", "TransmissionType", "YearOfProduction" },
                 values: new object[,]
                 {
+                    { new Guid("106b584f-2fc0-45ef-985f-ce520e719b3b"), 5.5, 11, 21.600000000000001, 8, 5500, 2, 0, 1, 507, "https://www.historics.co.uk/media/1649547/g-wagon-1.jpg?anchor=center&mode=crop&width=1000", "Mercedes", 210000, "G55 AMG", 6100, 3100, 499.99000000000001, null, 9.6999999999999993, 5, 290, 700, 1, 2009 },
                     { new Guid("1167ef05-3aaf-4ab8-8032-59d4d6bc2076"), 9.8000000000000007, 0, 7.5, 4, 2000, 1, 3, 0, 140, "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/VW_Passat_B7_1.4_TSI_BMT_Trendline_Islandgrau.JPG/1280px-VW_Passat_B7_1.4_TSI_BMT_Trendline_Islandgrau.JPG", "Volkswagen", 120000, "Passat B7", 4200, 2500, 99.0, null, 7.2000000000000002, 5, 211, 320, 1, 2014 },
-                    { new Guid("1201c5ee-8aa7-4400-9009-7bfc91fa4817"), 8.6999999999999993, 0, 8.6999999999999993, 4, 2000, 0, 0, 0, 122, "https://i.pinimg.com/736x/bd/f1/67/bdf167075cbba99b9eeed9393ba24d65.jpg", "Mercedes", 460000, "190E", 5300, 3500, 239.0, null, 9.0999999999999996, 5, 230, 178, 1, 1991 },
+                    { new Guid("1201c5ee-8aa7-4400-9009-7bfc91fa4817"), 4.7000000000000002, 0, 12.699999999999999, 4, 2500, 0, 0, 0, 235, "https://autobild.bg/wp-content/uploads/2021/08/Mercedes-190-E-2.5-16-Evo-II-7.jpg", "Mercedes", 41000, "190E EVO 2", 7200, 5000, 2239.9899999999998, null, 9.3000000000000007, 4, 298, 245, 0, 1991 },
+                    { new Guid("2c4f96ad-c259-4494-aec1-d16085794319"), 4.9000000000000004, 0, 13.4, 8, 6000, 0, 0, 1, 381, "https://i0.wp.com/www.klasikotom.com/wp-content/uploads/2019/10/W124-E60-AMG-Mercedes-Benz-Tarihcesi-motor-teknik-ozellikleri-nedir-nasil-nasildir-kps.jpg?fit=639%2C369&ssl=1", "Mercedes", 33000, "E60 AMG", 5500, 3750, 1089.99, null, 9.3000000000000007, 4, 324, 580, 1, 1994 },
+                    { new Guid("2ef90e6c-4356-465d-9389-9f6017b808c3"), 10.9, 2, 3.6000000000000001, 4, 1800, 0, 4, 0, 122, "https://www.auto-data.net/images/f15/Toyota-Corolla-XII_1.jpg", "Toyota", 76000, "Corolla", 5200, 3600, 79.989999999999995, null, 6.7000000000000002, 5, 180, 142, 1, 2019 },
+                    { new Guid("4fd8c3e0-5b21-44e1-8d0c-b6cae13ad9e2"), 5.9000000000000004, 0, 15.4, 12, 6000, 0, 0, 1, 408, "https://business-car-rent.net/wp-content/uploads/2021/03/mercedes-benz-w140-s600-kaban-brabus-mersedes-dlya-kino-na-semki-bez-voditelya-na-prokat-brabus-mers-kiev-10-1.jpg", "Mercedes", 59000, "S600 SEL", 5200, 3800, 889.99000000000001, null, 9.6999999999999993, 5, 308, 580, 1, 1998 },
+                    { new Guid("972f5bfe-0147-48ba-9fa3-a869604e8eb7"), 6.7999999999999998, 3, 7.5999999999999996, 4, 2000, 0, 0, 0, 150, "https://i0.shbdn.com/photos/52/19/80/x5_1163521980bds.jpg", "Renault", 340000, "Megane Coach", 6200, 4200, 199.99000000000001, null, 7.7000000000000002, 4, 243, 190, 0, 1999 },
                     { new Guid("bdf5c65f-4470-4139-8ec3-8c3baf0e34d6"), 14.1, 2, 6.2999999999999998, 4, 1300, 0, 0, 0, 70, "https://parkers-images.bauersecure.com/wp-images/2148/cut-out/930x620/st05.jpg", "Ford", 260000, "Fiesta MK5", 5000, 2800, 59.0, null, 5.9000000000000004, 5, 180, 106, 0, 2004 }
                 });
 
@@ -297,7 +302,12 @@ namespace CarRental.Migrations
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "CreatedOn", "CreatorId", "Description", "StarsRating", "Title" },
-                values: new object[] { new Guid("df0bd291-45c5-4ac0-a927-27b27ddbd821"), new DateTime(2024, 4, 10, 5, 20, 27, 851, DateTimeKind.Utc).AddTicks(839), new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), "Exceptional service from Fast Lane Car Rental! The rental process was seamless, and the car exceeded my expectations. Will definitely be using their services again!", 5, "Reccomend it!" });
+                values: new object[,]
+                {
+                    { new Guid("6db74b16-8cc7-4709-9fce-9e8a30939efc"), new DateTime(2024, 4, 19, 20, 44, 3, 125, DateTimeKind.Local).AddTicks(6551), new Guid("8a5edc49-7490-493f-2f01-08db8a416485"), "My experience with Fast Lane Car Rental exceeded all expectations. From booking to drop-off, everything was flawless. The quality of their vehicles and the professionalism of their team truly set them apart. Will definitely be returning for my future rental needs!", 4, "Awesome!" },
+                    { new Guid("9bdc6a38-e9f4-4cdf-8b9e-b329e0f0233c"), new DateTime(2024, 4, 19, 20, 44, 3, 125, DateTimeKind.Local).AddTicks(6543), new Guid("f06d4765-779a-4766-eb64-08db8a42133c"), "Fast Lane Car Rental made my trip an absolute breeze! Their extensive selection of vehicles ensured I found the perfect ride for my adventure. The seamless rental process and friendly staff made the experience top-notch. Highly recommend!", 4, "The best in the business!" },
+                    { new Guid("df0bd291-45c5-4ac0-a927-27b27ddbd821"), new DateTime(2024, 4, 19, 20, 44, 3, 125, DateTimeKind.Local).AddTicks(6497), new Guid("f2525385-0162-4b42-8fa5-08db8a43496a"), "Exceptional service from Fast Lane Car Rental! The rental process was seamless, and the car exceeded my expectations. Will definitely be using their services again!", 5, "Reccomend it!" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
