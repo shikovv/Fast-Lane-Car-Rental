@@ -24,68 +24,129 @@ namespace NUnitTests
                 .UseInMemoryDatabase(databaseName: "TestDb")
                 .Options;
             dbContext = new ApplicationDbContext(options);
-            SeedDatabase();
             commentService = new CommentService(dbContext);
         }
 
-        private void SeedDatabase()
+        [Test]
+        public async Task AllCommentsByCreationTime_ShouldReturnAllCommentsSortedByCreationTimeDescending()
         {
             var comments = new List<Comment>
-            {
-                new Comment { Id = Guid.NewGuid(), Title = "Comment 1", Description = "Description 1", StarsRating = 5, CreatedOn = DateTime.Now.AddDays(-1), CreatorId = Guid.NewGuid() },
-                new Comment { Id = Guid.NewGuid(), Title = "Comment 2", Description = "Description 2", StarsRating = 4, CreatedOn = DateTime.Now.AddDays(-2), CreatorId = Guid.NewGuid() },
-                new Comment { Id = Guid.NewGuid(), Title = "Comment 3", Description = "Description 3", StarsRating = 3, CreatedOn = DateTime.Now.AddDays(-3), CreatorId = Guid.NewGuid() },
-            };
+    {
+        new Comment { Id = Guid.NewGuid(), Title = "Title 1", Description = "Description 1", StarsRating = 5, CreatedOn = DateTime.UtcNow.AddDays(-3), Creator = new ApplicationUser { FirstName = "John", LastName = "Doe" } },
+        new Comment { Id = Guid.NewGuid(), Title = "Title 2", Description = "Description 2", StarsRating = 4, CreatedOn = DateTime.UtcNow.AddDays(-1), Creator = new ApplicationUser { FirstName = "Jane", LastName = "Smith" } },
+        new Comment { Id = Guid.NewGuid(), Title = "Title 3", Description = "Description 3", StarsRating = 3, CreatedOn = DateTime.UtcNow.AddDays(-2), Creator = new ApplicationUser { FirstName = "Alice", LastName = "Johnson" } }
+    };
 
             dbContext.Comments.AddRange(comments);
             dbContext.SaveChanges();
+            var result = await commentService.AllCommentsByCreationTime();
+            Assert.IsNotNull(result);
+            var commentDetails = result.ToList();
+            Assert.AreEqual(3, commentDetails.Count);
+            Assert.AreEqual("Title 2", commentDetails[0].Title);
+            Assert.AreEqual("Title 3", commentDetails[1].Title);
+            Assert.AreEqual("Title 1", commentDetails[2].Title);
         }
+
 
         [Test]
         public async Task ExistById_WhenCommentExists_ShouldReturnTrue()
         {
-            // Arrange
             var existingCommentId = dbContext.Comments.First().Id;
-
-            // Act
             var result = await commentService.ExistById(existingCommentId);
-
-            // Assert
             Assert.IsTrue(result);
         }
 
         [Test]
         public async Task ExistById_WhenCommentDoesNotExist_ShouldReturnFalse()
         {
-            // Arrange
             var nonExistingCommentId = Guid.NewGuid();
-
-            // Act
             var result = await commentService.ExistById(nonExistingCommentId);
-
-            // Assert
             Assert.IsFalse(result);
         }
+
+        [Test]
+        public async Task GetCommentForEditById_ShouldReturnCommentFormModel()
+        {
+            var commentId = Guid.NewGuid();
+            var comment = new Comment
+            {
+                Id = commentId,
+                Title = "Test Title",
+                Description = "Test Description",
+                StarsRating = 4
+            };
+            dbContext.Comments.Add(comment);
+            dbContext.SaveChanges();
+            var result = await commentService.GetCommentForEditById(commentId);
+            Assert.IsNotNull(result);
+            Assert.AreEqual("Test Title", result.Title);
+            Assert.AreEqual("Test Description", result.Description);
+            Assert.AreEqual(4, result.StarsRating);
+        }
+
+        [Test]
+        public async Task EditCommentByIdAndFormModel_ShouldUpdateCommentProperties()
+        {
+            var commentId = Guid.NewGuid();
+            var comment = new Comment
+            {
+                Id = commentId,
+                Title = "Old Title",
+                Description = "Old Description",
+                StarsRating = 3
+            };
+            dbContext.Comments.Add(comment);
+            dbContext.SaveChanges();
+
+            var updatedModel = new CommentFormModel
+            {
+                Title = "New Title",
+                Description = "New Description",
+                StarsRating = 5
+            };
+            await commentService.EditCommentByIdAndFormModel(commentId, updatedModel);
+            var updatedComment = await dbContext.Comments.FindAsync(commentId);
+            Assert.IsNotNull(updatedComment);
+            Assert.AreEqual("New Title", updatedComment.Title);
+            Assert.AreEqual("New Description", updatedComment.Description);
+            Assert.AreEqual(5, updatedComment.StarsRating);
+        }
+
         [Test]
         public async Task CreateAndReturnId_ShouldCreateNewCommentAndReturnItsId()
         {
-            // Arrange
             var formModel = new CommentFormModel
             {
                 Title = "New Comment",
                 Description = "This is a new comment.",
-                StarsRating = 5 // Assume a valid rating
+                StarsRating = 5
             };
-            var userId = Guid.NewGuid(); // Assume a valid user ID
-
-            // Act
+            var userId = Guid.NewGuid();
             var commentId = await commentService.CreateAndReturnId(formModel, userId);
-
-            // Assert
-            Assert.IsNotNull(commentId); // Check if commentId is not null
-            Assert.IsInstanceOf(typeof(string), commentId); // Check if commentId is a string
-                                                            // You may further validate the commentId format or structure depending on your implementation
+            Assert.IsNotNull(commentId);
+            Assert.IsInstanceOf(typeof(string), commentId);
         }
-       
+
+        [Test]
+        public async Task DeleteCommentById_ShouldDeleteComment_WhenCommentExists()
+        {
+            var commentId = Guid.NewGuid();
+            await commentService.DeleteCommentById(commentId);
+            var deletedComment = await dbContext.Comments.FindAsync(commentId);
+            Assert.IsNull(deletedComment);
+        }
+
+        [Test]
+        public async Task IsCreaterWithId_ShouldReturnTrue_WhenCreatorIdMatchesUserId()
+        {
+            var commentId = Guid.NewGuid();
+            var userId = Guid.NewGuid();
+            var comment = new Comment { Id = commentId, CreatorId = userId, Description = "test", Title = "Test", StarsRating = 5 };
+            dbContext.Comments.Add(comment);
+            dbContext.SaveChanges();
+            var isCreator = await commentService.IsCreaterWithId(commentId, userId);
+            Assert.IsTrue(isCreator);
+        }
     }
 }
